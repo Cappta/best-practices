@@ -33,7 +33,7 @@
 
 - Para solution `<Empresa>.<Produto>` - Exemplo Cappta.Gp
 
-- Para projetos `<Empresa>.<Produto>.<Módulo>` - Exemplo Cappta.Gp.TefEngine
+- Para projetos `<Empresa>.<Produto>.<Módulo>` - Exemplo Cappta.Gp.çTefEngine
  - Class libraries devem sempre ser criadas como Portable Class Libraries, pois assim garantimos a compatibilidade entre SO. A menos que seja uma implementação específica.​
 
 ## Classes
@@ -60,6 +60,15 @@
 
 - Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique muito grande e seja lido simplesmente pelo fluxo de seus métodos.
 
+
+'''
+		public static void WriteLine(string message)
+		{
+			Write(message);
+			Console.WriteLine();
+		}
+'''
+
 - Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo (após a alteração analise se a leitura não ficou melhor).
 
 - Chamadas a métodos não estáticos em contexto de classe devem sempre utilizar o **this**, em caso de herança utilize **base**
@@ -76,6 +85,21 @@
 
 - Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
 
+'''
+
+public static class CnpjGenerator
+	{
+		private static readonly ulong CNPJ_MAX_VALUE = (ulong)Math.Pow(10, 14) - 1;
+		private static readonly Random random = new Random();
+
+		public static string Next()
+		{
+			return random.NextULong(CNPJ_MAX_VALUE).ToString("D14");
+		}
+	}
+
+'''
+
 - Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
 - Utilize a keyword **var** para definir a declaração de variaveis locais
@@ -83,6 +107,36 @@
 - Encontre nomes que contextualizem suas variaveis
 
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
+
+Wrong:
+'''
+
+public static double ConvertMetersToFeet(double meters)
+        {
+            return meters * 3.2808398950131233595800524934383;
+        }
+        public static double ConvertFeetToMeters(double feet)
+        {
+            return feet / 3.2808398950131233595800524934383;
+        }
+
+'''
+
+Right:
+'''
+
+ public const double MeterFeet = 3.2808398950131233595800524934383;
+
+        public static double ConvertMetersToFeet(double meters)
+        {
+            return meters * MeterFeet;
+        }
+        public static double ConvertFeetToMeters(double feet)
+        {
+            return feet / MeterFeet;
+        }
+        
+'''
 
 - Strings quando de mensagens para o usuário (seja final ou programador) devem ser utilizadas a partir um arquivo de *.resx dentro do projeto que a contém, além do fato disso garantir o reaproveitamento facilita no entendimento do código e desacopla detalhes de implementação de UI.
 
@@ -127,6 +181,50 @@
 - Caso seu código necessite de muitos comentários para ser compreendido, precisa ser refatorado
 
 - Somente utilize comentários quando houver a necessidade de definir o motivo de algo fora de contexto, antes tente refatorar o código ou conversas com alguém para simplificar a solução
+
+Wrong:
+'''
+
+// A Hello World! program in C#.
+using System;
+namespace HelloWorld
+{
+// My class
+    class Hello 
+    {
+    //Method Main
+        static void Main() 
+        {
+        //print message
+            Console.WriteLine("Hello World!");
+
+            // Keep the console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+        }
+    }
+}
+
+'''
+
+Right:
+
+'''
+using System;
+namespace HelloWorld
+{
+    class Hello 
+    {
+        static void Main() 
+        {
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+        }
+    }
+}
+'''
+
 
 - Caso encontre algo esquisito no código que necessite de refatoração ou algo temporário, crie um ticket na plataforma de gerenciamento de projetos e inclua um comentário no código especificando o motivo e destacando o ID para facilitar a referência.
 
