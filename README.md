@@ -12,15 +12,8 @@
 
 - Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
 
+## Bad
 ```c#
-    // Good
-    if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
-
-    this.someService.Execute(someTextInput)
-    this.fallbackSomeService.Execute(someTextInput);
-    //...
-
-    // Bad
     if (string.IsNullOrWhiteSpace(someTextInput) == false)
     {
         this.someService.Execute(someTextInput)
@@ -30,6 +23,15 @@
 
     throw new ArgumentNullException("Input is empty");
 ```
+
+## Good
+```c#
+    if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
+
+    this.someService.Execute(someTextInput)
+    this.fallbackSomeService.Execute(someTextInput);
+    //...
+``` 
 
 - Ordene os métodos na ordem em que eles são lidos verticalmente
 
@@ -97,12 +99,16 @@
 
 - Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
+## Bad
 ```c#
-    // Good
-    public DoSomething(string title, decimal price, int releaseYear);
+    using System;
+    //...
+    public AddBook(String title, Decimal price, Int32 releaseYear);
+```
 
-    // Bad
-    public DoSomething(String title, Decimal price, Int32 releaseYear);
+## Good
+```c#
+    public AddBook(string title, decimal price, int releaseYear);
 ```
 
 - Utilize a keyword **var** para definir a declaração de variaveis locais
@@ -192,6 +198,42 @@
 
 - Evitar ao máximo o uso de rethrow em Exceptions
 
-- A não ser que tenha um bom motivo sempre que possível realizar o tratamento de Exceptions especificas evitando algo como try {} catch(Exception) {}
+## Bad
+```c#
+    try {
+        // Do stuff that might throw an exception
+    }
+    catch (Exception e) {
+        throw e; // This destroys the strack trace information!
+    }
+```
+
+## Good
+```c#
+    try {
+    // Do stuff that might throw an exception
+    }
+    catch (IOException e) {
+        // Log it
+        throw; // This preserves the stack trace
+    }
+    catch (Exception e) {
+        // Log it
+        throw new Exception("Excrement occurred", e); // wrapped & chained exceptions (just like java).
+    }
+    finally {
+        // Normal clean goes here (like closing open files).
+    }
+```
+
+[Referência](https://stackoverflow.com/questions/881473/why-catch-and-rethrow-an-exception-in-c)
+
+Sempre que possível realizar o tratamento de Exceptions especificas. Evitando algo como: 
+
+```c#
+try {
+    // Do stuff that might throw an exception
+} catch(Exception) {}
+```
 
 - Sempre crie exceptions customizadas para contextualizar os erros 
