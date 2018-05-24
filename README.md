@@ -15,23 +15,23 @@
 
 **Bad**
 ```c#
-    if (string.IsNullOrWhiteSpace(someTextInput) == false)
-    {
-        this.someService.Execute(someTextInput)
-        this.fallbackSomeService.Execute(someTextInput);
-        //...
-    }
+if (string.IsNullOrWhiteSpace(someTextInput) == false)
+{
+    this.someService.Execute(someTextInput)
+    this.fallbackSomeService.Execute(someTextInput);
+    //...
+}
 
-    throw new ArgumentNullException("Input is empty");
+throw new ArgumentNullException("Input is empty");
 ```
 
 **Good**
 ```c#
-    if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
+if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
 
-    this.someService.Execute(someTextInput)
-    this.fallbackSomeService.Execute(someTextInput);
-    //...
+this.someService.Execute(someTextInput)
+this.fallbackSomeService.Execute(someTextInput);
+//...
 ``` 
 
 - Ordene os métodos na ordem em que eles são lidos verticalmente
@@ -103,14 +103,14 @@
 
 **Bad**
 ```c#
-    using System;
-    //...
-    public AddBook(String title, Decimal price, Int32 releaseYear);
+using System;
+//...
+public AddBook(String title, Decimal price, Int32 releaseYear);
 ```
 
 **Good**
 ```c#
-    public AddBook(string title, decimal price, int releaseYear);
+public AddBook(string title, decimal price, int releaseYear);
 ```
 
 - Utilize a keyword **var** para definir a declaração de variaveis locais
@@ -203,26 +203,26 @@
 
 ## Bad
 ```c#
-    try 
-    {
-        // Do stuff that might throw an exception
-    }
-    catch (Exception e) {
-        throw e; // This destroys the strack trace information!
-    }
+try 
+{
+    // Do stuff that might throw an exception
+}
+catch (Exception e) {
+    throw e; // This destroys the strack trace information!
+}
 ```
 
 ## Good
 ```c#
-    try 
-    {
-        // code that may throw exceptions    
-    }
-    catch(Exception ex) 
-    {
-        // add error logging here
-        throw; // This preserves the stack trace
-    }
+try 
+{
+    // code that may throw exceptions    
+}
+catch(Exception ex) 
+{
+    // add error logging here
+    throw; // This preserves the stack trace
+}
 ```
 
 [Referência](https://stackoverflow.com/questions/881473/why-catch-and-rethrow-an-exception-in-c)
@@ -230,10 +230,10 @@
 Sempre que possível realizar o tratamento de Exceptions especificas. Evitando algo como: 
 
 ```c#
-    try 
-    {
-        // Do stuff that might throw an exception
-    } catch(Exception) {}
+try 
+{
+    // Do stuff that might throw an exception
+} catch(Exception) {}
 ```
 
 - Sempre crie exceptions customizadas para contextualizar os erros 
