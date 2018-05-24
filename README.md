@@ -203,7 +203,8 @@
 
 ## Bad
 ```c#
-    try {
+    try 
+    {
         // Do stuff that might throw an exception
     }
     catch (Exception e) {
@@ -213,19 +214,14 @@
 
 ## Good
 ```c#
-    try {
-        // Do stuff that might throw an exception
+    try 
+    {
+        // code that may throw exceptions    
     }
-    catch (IOException e) {
-        // Log it
+    catch(Exception ex) 
+    {
+        // add error logging here
         throw; // This preserves the stack trace
-    }
-    catch (Exception e) {
-        // Log it
-        throw new Exception("Excrement occurred", e); // wrapped & chained exceptions (just like java).
-    }
-    finally {
-        // Normal clean goes here (like closing open files).
     }
 ```
 
@@ -234,9 +230,10 @@
 Sempre que possível realizar o tratamento de Exceptions especificas. Evitando algo como: 
 
 ```c#
-try {
-    // Do stuff that might throw an exception
-} catch(Exception) {}
+    try 
+    {
+        // Do stuff that might throw an exception
+    } catch(Exception) {}
 ```
 
 - Sempre crie exceptions customizadas para contextualizar os erros 
