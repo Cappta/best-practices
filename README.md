@@ -13,19 +13,19 @@
 #### Inverter a condição
   Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
 
-**Bad**
+**Ruim**
 ```c#
 if (string.IsNullOrWhiteSpace(someTextInput) == false)
 {
-    this.someService.Execute(someTextInput)
-    this.fallbackSomeService.Execute(someTextInput);
-    //...
+  this.someService.Execute(someTextInput)
+  this.fallbackSomeService.Execute(someTextInput);
+  //...
 }
 
 throw new ArgumentNullException("Input is empty");
 ```
 
-**Good**
+**Bom**
 ```c#
 if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
 
@@ -101,14 +101,14 @@ this.fallbackSomeService.Execute(someTextInput);
 ##### Utilize as keywords
   Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
-**Bad**
+**Ruim**
 ```c#
 using System;
 //...
 public AddBook(String title, Decimal price, Int32 releaseYear);
 ```
 
-**Good**
+**Bom**
 ```c#
 public AddBook(string title, decimal price, int releaseYear);
 ```
@@ -201,27 +201,27 @@ public AddBook(string title, decimal price, int releaseYear);
 #### Evite rethrow
   Evitar ao máximo o uso de rethrow em Exceptions
 
-## Bad
+**Ruim**
 ```c#
 try 
 {
-    // Do stuff that might throw an exception
+  // Do stuff that might throw an exception
 }
 catch (Exception e) {
-    throw e; // This destroys the strack trace information!
+  throw e; // This destroys the strack trace information!
 }
 ```
 
-## Good
+**Bom**
 ```c#
 try 
 {
-    // code that may throw exceptions    
+  // code that may throw exceptions    
 }
 catch(Exception ex) 
 {
-    // add error logging here
-    throw; // This preserves the stack trace
+  // add error logging here
+  throw; // This preserves the stack trace
 }
 ```
 
@@ -232,7 +232,7 @@ Sempre que possível realizar o tratamento de Exceptions especificas. Evitando a
 ```c#
 try 
 {
-    // Do stuff that might throw an exception
+  // Do stuff that might throw an exception
 } catch(Exception) {}
 ```
 
