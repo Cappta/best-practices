@@ -12,6 +12,25 @@
 
 - Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
 
+```c#
+    // Good
+    if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
+
+    this.someService.Execute(someTextInput)
+    this.fallbackSomeService.Execute(someTextInput);
+    //...
+
+    // Bad
+    if (string.IsNullOrWhiteSpace(someTextInput) == false)
+    {
+        this.someService.Execute(someTextInput)
+        this.fallbackSomeService.Execute(someTextInput);
+        //...
+    }
+
+    throw new ArgumentNullException("Input is empty");
+```
+
 - Ordene os métodos na ordem em que eles são lidos verticalmente
 
 - Ordene suas classes da seguinte maneira:
