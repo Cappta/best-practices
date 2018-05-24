@@ -115,6 +115,18 @@ public AddBook(string title, decimal price, int releaseYear);
 
 - Utilize a keyword **var** para definir a declaração de variaveis locais
 
+Wrong:
+
+```
+Object listObjects = new List<Object>();
+```
+
+Right:
+
+```
+var listObjects = new List<Object>();
+```
+
 - Encontre nomes que contextualizem suas variaveis
 
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
