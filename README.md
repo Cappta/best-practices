@@ -4,6 +4,27 @@
 
 - Sempre formatar abertura de chaves na linha seguinte a menos que o trecho de código dentro das chaves seja relativamente simples, neste caso mantenha toda a sentença na mesma linha (incluindo as chaves)
 
+Wrong:
+```
+if (Condition){
+				// ...Stuff
+   	// ...More than one stuff
+}
+```
+
+Right:
+```
+if (Condition)
+{
+				// ...Stuff
+   	// ...More than one stuff
+}
+   
+   or
+   
+if (Condition){ // ...Stuff }
+```
+
 - Máximo de colunas **120**
 
 - Sempre utilizar **{}** nos ifs mesmo que tenha somente uma linha, isso serve para evitar que por engano alguém inclua código sem reparar que as chaves não existam.
