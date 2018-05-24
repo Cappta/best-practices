@@ -36,14 +36,36 @@ if (Condition){ // ...Stuff }
 - Ordene os métodos na ordem em que eles são lidos verticalmente
 
 - Ordene suas classes da seguinte maneira:
- - variaveis `const`
- - variaveis `static readonly`
- - variaveis `static`
- - variaveis comuns
- - construtores
- - propriedades
- - eventos
- - métodos
+
+```
+class Example
+{
+	private const int CONST_VARIABLE_EXAMPLE = 0;   // 1° - Variáveis const
+
+	private static readonly string STATIC_READONLY_VARIABLE_EXAMPLE = "Example";	// 2° - Variaveis static readonly
+
+	private static int STATIC_VARIABLE_EXAMPLE = 0; // 3° - Variaveis static
+
+	private string COMMON_VARIABLE_EXAMPLE = "Example";	// 4° Variaveis comuns
+
+	public Example()	// 5° - Construtores
+	{
+				
+	}
+
+	public string PropertieExample { get; set; }	// 6° - Propriedades
+
+	public void EventExemple(object sender, Args e)	// 7° - Eventos
+	{
+
+	}
+
+	public void MethodExample()	// 8° Métodos
+	{
+			//Stuff...
+	}
+}
+```
 
 ## Solution
 
