@@ -10,9 +10,10 @@
 
 - Nunca utilizar **!** e sim **== false**, pois é muito mais fácil um caractere magro no início da sentença passar batido do que a segunda opção.
 
-- Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
+#### Inverter a condição
+  Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
 
-## Bad
+**Bad**
 ```c#
     if (string.IsNullOrWhiteSpace(someTextInput) == false)
     {
@@ -24,7 +25,7 @@
     throw new ArgumentNullException("Input is empty");
 ```
 
-## Good
+**Good**
 ```c#
     if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
 
@@ -97,16 +98,17 @@
 
 - Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
 
-- Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
+##### Utilize as keywords
+  Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
-## Bad
+**Bad**
 ```c#
     using System;
     //...
     public AddBook(String title, Decimal price, Int32 releaseYear);
 ```
 
-## Good
+**Good**
 ```c#
     public AddBook(string title, decimal price, int releaseYear);
 ```
@@ -196,7 +198,8 @@
 
 ## Exceptions
 
-- Evitar ao máximo o uso de rethrow em Exceptions
+#### Evite rethrow
+  Evitar ao máximo o uso de rethrow em Exceptions
 
 ## Bad
 ```c#
@@ -211,7 +214,7 @@
 ## Good
 ```c#
     try {
-    // Do stuff that might throw an exception
+        // Do stuff that might throw an exception
     }
     catch (IOException e) {
         // Log it
