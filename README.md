@@ -97,6 +97,14 @@
 
 - Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
+```c#
+    // Good
+    public DoSomething(string title, decimal price, int releaseYear);
+
+    // Bad
+    public DoSomething(String title, Decimal price, Int32 releaseYear);
+```
+
 - Utilize a keyword **var** para definir a declaração de variaveis locais
 
 - Encontre nomes que contextualizem suas variaveis
