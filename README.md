@@ -7,7 +7,7 @@
 Wrong:
 ```
 if (Condition){
-				// ...Stuff
+	// ...Stuff
    	// ...More than one stuff
 }
 ```
@@ -16,7 +16,7 @@ Right:
 ```
 if (Condition)
 {
-				// ...Stuff
+	// ...Stuff
    	// ...More than one stuff
 }
    
