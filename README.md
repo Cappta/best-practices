@@ -10,7 +10,29 @@
 
 - Nunca utilizar **!** e sim **== false**, pois é muito mais fácil um caractere magro no início da sentença passar batido do que a segunda opção.
 
-- Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
+#### Inverter a condição
+  Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
+
+**Ruim**
+```c#
+if (string.IsNullOrWhiteSpace(someTextInput) == false)
+{
+  this.someService.Execute(someTextInput)
+  this.fallbackSomeService.Execute(someTextInput);
+  //...
+}
+
+throw new ArgumentNullException("Input is empty");
+```
+
+**Bom**
+```c#
+if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
+
+this.someService.Execute(someTextInput)
+this.fallbackSomeService.Execute(someTextInput);
+//...
+``` 
 
 - Ordene os métodos na ordem em que eles são lidos verticalmente
 
@@ -76,7 +98,20 @@
 
 - Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
 
-- Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
+##### Utilize as keywords
+  Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
+
+**Ruim**
+```c#
+using System;
+//...
+public AddBook(String title, Decimal price, Int32 releaseYear);
+```
+
+**Bom**
+```c#
+public AddBook(string title, decimal price, int releaseYear);
+```
 
 - Utilize a keyword **var** para definir a declaração de variaveis locais
 
@@ -163,8 +198,42 @@
 
 ## Exceptions
 
-- Evitar ao máximo o uso de rethrow em Exceptions
+#### Evite rethrow
+  Evitar ao máximo o uso de rethrow em Exceptions
 
-- A não ser que tenha um bom motivo sempre que possível realizar o tratamento de Exceptions especificas evitando algo como try {} catch(Exception) {}
+**Ruim**
+```c#
+try 
+{
+  // Do stuff that might throw an exception
+}
+catch (Exception e) {
+  throw e; // This destroys the strack trace information!
+}
+```
+
+**Bom**
+```c#
+try 
+{
+  // code that may throw exceptions    
+}
+catch(Exception ex) 
+{
+  // add error logging here
+  throw; // This preserves the stack trace
+}
+```
+
+[Referência](https://stackoverflow.com/questions/881473/why-catch-and-rethrow-an-exception-in-c)
+
+Sempre que possível realizar o tratamento de Exceptions especificas. Evitando algo como: 
+
+```c#
+try 
+{
+  // Do stuff that might throw an exception
+} catch(Exception) {}
+```
 
 - Sempre crie exceptions customizadas para contextualizar os erros 
