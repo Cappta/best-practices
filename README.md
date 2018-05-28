@@ -63,24 +63,24 @@
 **Ruim**
 
 ```c#
-		public static void WriteLineReadLineConvertToUpper(string message)
-		{
-			Write(message);
-			Console.WriteLine();
-			
-			String R = Console.ReadLine();
-			String ConvertToUpper = R.ToUpper();
-		}
+public static void WriteLineReadLineConvertToUpper(string message)
+	{
+		Write(message);
+		Console.WriteLine();
+	
+		String R = Console.ReadLine();
+		String ConvertToUpper = R.ToUpper();
+	}
 ```
 
 **Bom**
 
 ```c#
-		public static void WriteLine(string message)
-		{
-			Write(message);
-			Console.WriteLine();
-		}
+public static void WriteLine(string message)
+	{
+		Write(message);
+		Console.WriteLine();
+	}
 ```
 
 - Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo (após a alteração analise se a leitura não ficou melhor).
@@ -138,7 +138,7 @@ public static double ConvertMetersToFeet(double meters)
 **Bom**
 
 ```c#
- public const double MeterFeet = 3.2808398950131233595800524934383;
+public const double MeterFeet = 3.2808398950131233595800524934383;
 
         public static double ConvertMetersToFeet(double meters)
         {
@@ -201,20 +201,20 @@ public static double ConvertMetersToFeet(double meters)
 using System;
 namespace HelloWorld
 {
-// Minha Classe
-    class Hello 
-    {
-    //Metódo principal
-        static void Main() 
-        {
-        //exibir a menssagem
-            Console.WriteLine("Hello World!");
+	// Minha Classe
+    	class Hello 
+    	{
+    	//Metódo principal
+        	static void Main() 
+        	{
+        		//exibir a menssagem
+            		Console.WriteLine("Hello World!");
 
-            // Permanecer na tela até que insira um valor via teclado.
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
-        }
-    }
+            		// Permanecer na tela até que insira um valor via teclado.
+            		Console.WriteLine("Press any key to exit.");
+            		Console.ReadKey();
+        	}
+    	}
 }
 ```
 
@@ -224,15 +224,15 @@ namespace HelloWorld
 using System;
 namespace HelloWorld
 {
-    class Hello 
-    {
-        static void Main() 
-        {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
-        }
-    }
+	class Hello 
+    	{
+        	static void Main() 
+        	{
+            		Console.WriteLine("Hello World!");
+            		Console.WriteLine("Press any key to exit.");
+            		Console.ReadKey();
+        	}
+    	}
 }
 ```
 
