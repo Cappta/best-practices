@@ -59,9 +59,21 @@
 - Nomes devem representar a ação que está sendo executada.
 
 - Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique muito grande e seja lido simplesmente pelo fluxo de seus métodos.
+Ruim:
+'''
+		public static void WriteLineReadLineConvertToUpper(string message)
+		{
+			Write(message);
+			Console.WriteLine();
+			
+			String R = Console.ReadLine();
+			String ConvertToUpper = R.ToUpper();
+		}
 
+'''
 
-'''C#
+Bom:
+'''
 		public static void WriteLine(string message)
 		{
 			Write(message);
@@ -85,7 +97,7 @@
 
 - Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
 
-'''C#
+'''
 
 public static class CnpjGenerator
 	{
@@ -108,8 +120,8 @@ public static class CnpjGenerator
 
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
 
-Wrong:
-'''C#
+Ruim:
+'''
 
 public static double ConvertMetersToFeet(double meters)
         {
@@ -122,8 +134,8 @@ public static double ConvertMetersToFeet(double meters)
 
 '''
 
-Right:
-'''C#
+Bom:
+'''
 
  public const double MeterFeet = 3.2808398950131233595800524934383;
 
@@ -182,8 +194,8 @@ Right:
 
 - Somente utilize comentários quando houver a necessidade de definir o motivo de algo fora de contexto, antes tente refatorar o código ou conversas com alguém para simplificar a solução
 
-Wrong:
-'''C#
+Ruim:
+'''
 
 // A Hello World! program in C#.
 using System;
@@ -207,9 +219,9 @@ namespace HelloWorld
 
 '''
 
-Right:
+Bom:
 
-'''C#
+'''
 using System;
 namespace HelloWorld
 {
