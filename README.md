@@ -394,7 +394,6 @@ catch (Exception ex)
 try
 {
 	// Do some action
-
 }
 catch (BaseException ex)
 {
