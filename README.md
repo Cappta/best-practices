@@ -62,7 +62,7 @@
 
 **Ruim**
 
-'''C#
+
 		public static void WriteLineReadLineConvertToUpper(string message)
 		{
 			Write(message);
@@ -71,17 +71,16 @@
 			String R = Console.ReadLine();
 			String ConvertToUpper = R.ToUpper();
 		}
-'''
 
 **Bom**
 
-'''C#
+
 		public static void WriteLine(string message)
 		{
 			Write(message);
 			Console.WriteLine();
 		}
-'''
+
 
 - Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo (após a alteração analise se a leitura não ficou melhor).
 
@@ -99,7 +98,7 @@
 
 - Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
 
-'''C#
+
 public static class CnpjGenerator
 	{
 		private static readonly ulong CNPJ_MAX_VALUE = (ulong)Math.Pow(10, 14) - 1;
@@ -110,7 +109,7 @@ public static class CnpjGenerator
 			return random.NextULong(CNPJ_MAX_VALUE).ToString("D14");
 		}
 	}
-'''
+
 
 - Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
@@ -122,7 +121,7 @@ public static class CnpjGenerator
 
 **Ruim**
 
-'''C#
+
 
 public static double ConvertMetersToFeet(double meters)
         {
@@ -133,11 +132,10 @@ public static double ConvertMetersToFeet(double meters)
             return feet / 3.2808398950131233595800524934383;
         }
 
-'''
 
 **Bom**
 
-'''C#
+
 
  public const double MeterFeet = 3.2808398950131233595800524934383;
 
@@ -149,7 +147,6 @@ public static double ConvertMetersToFeet(double meters)
         {
             return feet / MeterFeet;
         }  
-'''
 
 - Strings quando de mensagens para o usuário (seja final ou programador) devem ser utilizadas a partir um arquivo de *.resx dentro do projeto que a contém, além do fato disso garantir o reaproveitamento facilita no entendimento do código e desacopla detalhes de implementação de UI.
 
@@ -197,32 +194,30 @@ public static double ConvertMetersToFeet(double meters)
 
 **Ruim**
 
-'''C#
 
-// A Hello World! program in C#.
+// Um programa em C#.
 using System;
 namespace HelloWorld
 {
-// My class
+// Minha Classe
     class Hello 
     {
-    //Method Main
+    //Metódo principal
         static void Main() 
         {
-        //print message
+        //exibir a menssagem
             Console.WriteLine("Hello World!");
 
-            // Keep the console window open in debug mode.
+            // Permanecer na tela até que insira um valor via teclado.
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
     }
 }
-'''
 
 **Bom**
 
-'''C#
+
 using System;
 namespace HelloWorld
 {
@@ -236,8 +231,6 @@ namespace HelloWorld
         }
     }
 }
-'''
-
 
 - Caso encontre algo esquisito no código que necessite de refatoração ou algo temporário, crie um ticket na plataforma de gerenciamento de projetos e inclua um comentário no código especificando o motivo e destacando o ID para facilitar a referência.
 
