@@ -108,6 +108,8 @@ class Example
 - Nomes devem representar a Entidade em questão
 
 - Mantenha tudo o menos acessível possível somente aumente o acesso a classe quando necessário.
+	https://www.codingblocks.net/podcast/episode-23-back-to-basics-encapsulation-for-object-oriented-programming/
+
 
 - Ao implementar uma nova classe pense em SOLID quando aplicavel 
 
@@ -132,6 +134,27 @@ class Example
 - Ao utilizar coleções em retornos ou parâmetros sempre defina-os como **IEnumerable**
 
 - Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados
+
+	**Ruim**
+	```c#
+	public void Foo(object someParameter)
+	{
+		this.Bar(someParameter.SomeField);
+	}
+	```
+
+	**Bom**
+	```c#
+	public void Foo(object someParameter)
+	{
+		if(someParameter == null)
+		{
+			throw new ArgumentNullException(name(aomeParameter));
+		}
+		
+		this.Bar(someParameter.SomeField);
+	}
+	```
 
 ## Variáveis
 
@@ -189,8 +212,53 @@ var listObjects = new List<Object>();
 - Variaveis em contexto de classe sempre serão private
 
 - Caso tenha necessidade de abrir o escopo de uma variável a contexto de classe converte-la em uma Property
+	
+	**Ruim**
+	```c#
+	public class Foo
+	{
+		public object someField;
+	}
+	```
+
+	**Bom**
+	```c#
+	public class Foo
+	{
+		public object SomeField {get;set;}
+	}
+	```
 
 - Sempre que criar Properties reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da classe
+
+	**Ruim**
+	```c#
+	public class BankAccount
+	{
+		//setter da propriedade Balance público permite que outro trecho de código altere o saldo da conta livremente
+		public decimal Balance {get;set;}
+	}
+	```
+
+	**Bom**
+	```c#
+	public class BankAccount
+	{
+		public decimal Balance {get;private set;}
+
+		public void Deposit(decimal amount)
+		{
+			this.Balance += amount;
+		}
+
+		public decimal Withdraw(decimal amount)
+		{
+			this.Balance -= amount;
+			
+			return this.Balance;
+		}
+	}
+	```
 
 - Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
 
