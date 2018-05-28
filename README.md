@@ -120,6 +120,7 @@ public static class CnpjGenerator
 
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
 
+**O que é um Magic Number:**
 http://dicas.triadworks.com.br/dica-2-numeros-magicos/
 
 **Ruim**
