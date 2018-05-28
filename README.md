@@ -62,7 +62,7 @@
 
 **Ruim**
 
-
+```c#
 		public static void WriteLineReadLineConvertToUpper(string message)
 		{
 			Write(message);
@@ -71,16 +71,17 @@
 			String R = Console.ReadLine();
 			String ConvertToUpper = R.ToUpper();
 		}
+```
 
 **Bom**
 
-
+```c#
 		public static void WriteLine(string message)
 		{
 			Write(message);
 			Console.WriteLine();
 		}
-
+```
 
 - Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo (após a alteração analise se a leitura não ficou melhor).
 
@@ -98,7 +99,7 @@
 
 - Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
 
-
+```c#
 public static class CnpjGenerator
 	{
 		private static readonly ulong CNPJ_MAX_VALUE = (ulong)Math.Pow(10, 14) - 1;
@@ -109,7 +110,7 @@ public static class CnpjGenerator
 			return random.NextULong(CNPJ_MAX_VALUE).ToString("D14");
 		}
 	}
-
+```
 
 - Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
@@ -119,10 +120,11 @@ public static class CnpjGenerator
 
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
 
+http://dicas.triadworks.com.br/dica-2-numeros-magicos/
+
 **Ruim**
 
-
-
+```c#
 public static double ConvertMetersToFeet(double meters)
         {
             return meters * 3.2808398950131233595800524934383;
@@ -131,12 +133,11 @@ public static double ConvertMetersToFeet(double meters)
         {
             return feet / 3.2808398950131233595800524934383;
         }
-
+```
 
 **Bom**
 
-
-
+```c#
  public const double MeterFeet = 3.2808398950131233595800524934383;
 
         public static double ConvertMetersToFeet(double meters)
@@ -147,6 +148,7 @@ public static double ConvertMetersToFeet(double meters)
         {
             return feet / MeterFeet;
         }  
+```
 
 - Strings quando de mensagens para o usuário (seja final ou programador) devem ser utilizadas a partir um arquivo de *.resx dentro do projeto que a contém, além do fato disso garantir o reaproveitamento facilita no entendimento do código e desacopla detalhes de implementação de UI.
 
@@ -194,7 +196,7 @@ public static double ConvertMetersToFeet(double meters)
 
 **Ruim**
 
-
+```c#
 // Um programa em C#.
 using System;
 namespace HelloWorld
@@ -214,10 +216,11 @@ namespace HelloWorld
         }
     }
 }
+```
 
 **Bom**
 
-
+```c#
 using System;
 namespace HelloWorld
 {
@@ -231,6 +234,7 @@ namespace HelloWorld
         }
     }
 }
+```
 
 - Caso encontre algo esquisito no código que necessite de refatoração ou algo temporário, crie um ticket na plataforma de gerenciamento de projetos e inclua um comentário no código especificando o motivo e destacando o ID para facilitar a referência.
 
