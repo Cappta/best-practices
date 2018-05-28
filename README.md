@@ -61,6 +61,7 @@
 - Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique muito grande e seja lido simplesmente pelo fluxo de seus métodos.
 
 **Ruim**
+
 '''C#
 		public static void WriteLineReadLineConvertToUpper(string message)
 		{
@@ -73,6 +74,7 @@
 '''
 
 **Bom**
+
 '''C#
 		public static void WriteLine(string message)
 		{
@@ -119,6 +121,7 @@ public static class CnpjGenerator
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
 
 **Ruim**
+
 '''C#
 
 public static double ConvertMetersToFeet(double meters)
@@ -133,6 +136,7 @@ public static double ConvertMetersToFeet(double meters)
 '''
 
 **Bom**
+
 '''C#
 
  public const double MeterFeet = 3.2808398950131233595800524934383;
@@ -192,6 +196,7 @@ public static double ConvertMetersToFeet(double meters)
 - Somente utilize comentários quando houver a necessidade de definir o motivo de algo fora de contexto, antes tente refatorar o código ou conversas com alguém para simplificar a solução
 
 **Ruim**
+
 '''C#
 
 // A Hello World! program in C#.
