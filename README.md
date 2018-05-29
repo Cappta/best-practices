@@ -120,7 +120,8 @@ public static class CnpjGenerator
 
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
 
-**O que é um Magic Number:**
+**O que é um Magic Number:** Números mágicos são valores contidos em um código sem uma definição clara de seu significado, muita das vezes apenas o desenvolvedor da regra de negócios entende. Sendo assim, definimos como constante para que fique centralizado esse valor em um único local.
+
 http://dicas.triadworks.com.br/dica-2-numeros-magicos/
 
 **Ruim**
