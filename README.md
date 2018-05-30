@@ -4,7 +4,7 @@
 
 - Sempre formatar abertura de chaves na linha seguinte a menos que o trecho de código dentro das chaves seja relativamente simples, neste caso mantenha toda a sentença na mesma linha (incluindo as chaves)
 
-Wrong:
+**Ruim:**
 ```
 if (Condition){
 	// ...Stuff
@@ -12,7 +12,7 @@ if (Condition){
 }
 ```
 
-Right:
+**Bom:**
 ```
 if (Condition)
 {
@@ -28,13 +28,22 @@ if (Condition){ // ...Stuff }
 - Máximo de colunas **120**
 
 - Sempre utilizar **{}** nos ifs mesmo que tenha somente uma linha, isso serve para evitar que por engano alguém inclua código sem reparar que as chaves não existam.
+ 
+**Ruim:**
+```c#
+if(word.IsNullOrEmpty() == true ) DoNothing();
+```
+**Bom:**
+```c#
+if(word.IsNullOrEmpty() == true ) { DoNothing(); }
+```
 
 - Nunca utilizar **!** e sim **== false**, pois é muito mais fácil um caractere magro no início da sentença passar batido do que a segunda opção.
 
 #### Inverter a condição
   Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
 
-**Ruim**
+**Ruim:**
 ```c#
 if (string.IsNullOrWhiteSpace(someTextInput) == false)
 {
@@ -46,7 +55,7 @@ if (string.IsNullOrWhiteSpace(someTextInput) == false)
 throw new ArgumentNullException("Input is empty");
 ```
 
-**Bom**
+**Bom:**
 ```c#
 if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
 
@@ -115,6 +124,22 @@ class Example
 
 - Utilize object initializer para configurar propriedades opcionais ou de configuração.
 
+**Ruim:**
+```c#
+var transaction = new Transaction();
+transaction.Amount = 1000;
+transaction.Type = "Credit";
+```
+
+**Bom:**
+```c#
+var transaction = new Transaction
+{
+    Amount = 1000,
+    Type = "Credit"
+};
+```
+
 ## Métodos
 
 - As regras abaixo são validas para todos os níveis de acesso (private, protected, internal e public).
@@ -131,6 +156,46 @@ class Example
 
 - Ao utilizar coleções em retornos ou parâmetros sempre defina-os como **IEnumerable**
 
+**Ruim:**
+```c#
+var transactions = default(ICollection<Transaction>);
+tasks = this.GetTransactions();
+
+public IList<Transaction> GetTransactions()
+{
+    //do anything that returns IList<Transaction> at the end...
+}
+
+var clients = default(List<Clients>);
+clients = this.GetClients();
+
+public List<Client> GetClients()
+{
+    //do anything that returns List<Client> at the end...
+}
+```
+
+**Bom:**
+```c#
+var transactions = default(IEnumerable<Transaction>);
+tasks = this.GetTransactions();
+
+public IEnumerable<Transaction> GetTransactions()
+{
+    //do anything that returns IEnumerable<Transaction> at the end...
+}
+
+var clients = default(IEnumerable<Clients>);
+clients = this.GetClients();
+
+public IEnumerable<Client> GetClients()
+{
+    //do anything that returns IEnumerable<Client> at the end...
+}
+
+var clientsList = clients.ToList();
+```
+
 - Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados
 
 ## Variáveis
@@ -144,33 +209,67 @@ class Example
 ##### Utilize as keywords
   Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
-**Ruim**
+**Ruim:**
 ```c#
 using System;
 //...
 public AddBook(String title, Decimal price, Int32 releaseYear);
 ```
 
-**Bom**
+**Bom:**
 ```c#
 public AddBook(string title, decimal price, int releaseYear);
 ```
 
 - Utilize a keyword **var** para definir a declaração de variaveis locais
 
-Wrong:
+**Ruim:**
 
 ```
-Object listObjects = new List<Object>();
+List<string> listObjects = new List<string>();
 ```
 
-Right:
+**Bom:**
 
 ```
-var listObjects = new List<Object>();
+var listObjects = new List<string>();
 ```
 
-- Encontre nomes que contextualizem suas variaveis
+- Encontre nomes que contextualizem suas variaveis e métodos/classes
+
+**Ruim:**
+```c#
+public class Utils
+{
+    public string PaymChanName { get; set; }
+    public Client People { get; set; }
+    
+    public void DoOperation(Client Merchant, string PaymentChannel, double ProductValue)
+    {
+        this.People = Merchant;
+        this.PaymChanName = PaymentChannel;
+        
+        SalesRepository.Make(this.People, this.PaymChanName, ProductValue);
+    }
+}
+```
+
+**Bom:**
+```c#
+public class SalesController
+{
+    public string PaymentChannel { get; set; }
+    public Client Merchant { get; set; }
+    
+    public void MakeASale(Client Merchant, string PaymentChannel, double ProductValue)
+    {
+        this.Merchant = Merchant;
+        this.PaymentChannel = PaymentChannel;
+        
+        SalesRepository.Make(this.Merchant, this.PaymentChannel, ProductValue);
+    }
+}
+```
 
 - Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
 
@@ -256,7 +355,7 @@ var listObjects = new List<Object>();
 #### Evite rethrow
 Evitar ao máximo o uso de _rethrow_ de uma _Exception_, pois isto faz com que esta perca seu antigo _callstack_, ocultando o problema que originou a exceção.
 
-**Ruim**
+**Ruim:**
 ```c#
 try 
 {
@@ -267,7 +366,7 @@ catch (Exception e) {
 }
 ```
 
-**Bom**
+**Bom:**
 ```c#
 try 
 {
