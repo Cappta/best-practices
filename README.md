@@ -1,6 +1,6 @@
 ## Geral
 
-- Ao implementar uma nova classe ou método, pense em SOLID quando aplicavel! 
+- Ao implementar uma nova classe ou método, pense em SOLID quando aplicável! 
 - Chamadas a métodos e variáveis não estáticos em contexto de classe devem sempre utilizar o **this**. Em caso de herança utilize **base**
 
 ## Formatação
@@ -80,7 +80,7 @@ class Example
 
 	private static readonly string STATIC_READONLY_VARIABLE_EXAMPLE = "Example";	// 2° - Variaveis static readonly
 
-	private static int STATIC_VARIABLE_EXAMPLE = 0; // 3° - Variaveis static
+	private static int staticVariableExample = 0; // 3° - Variaveis static
 
 	private string commomVariableExample = "Example";	// 4° Variaveis comuns
 
@@ -112,7 +112,7 @@ class Example
 
 - Para projetos `<Empresa>.<Produto>.<Módulo>` - Exemplo Cappta.Gp.TefEngine
 
-- Class libraries devem sempre ser criadas como .NET Standard Class Libraries, pois assim garantimos a compatibilidade entre SO. A menos que seja uma implementação específica.​
+- Class libraries, se possível, devem ser criadas como .NET Standard Class Libraries, pois assim garantimos a compatibilidade com ambos .NET Framework e .NET Core, o que aumenta a sua portabilidade entre sistemas operacionais.
 
 ## Classes
 
@@ -151,7 +151,7 @@ var transaction = new Transaction
 
 - Nomes devem representar a ação que está sendo executada.
 
-- Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique muito grande e seja lido simplesmente pelo fluxo de seus métodos. Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo.
+- Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique grande e possa ser lido de forma fluída e contínua, sem a necessidade de realizar saltos no arquivo de código fonte. Evite separar o comportamento de um método em blocos separados por linhas em branco. Tente extrair o comportamento destes blocos para outros métodos privados e dê nomes significativos para estes.
 
 - Ao utilizar coleções em retornos ou parâmetros sempre defina-os como **IEnumerable**
 
@@ -195,18 +195,18 @@ public IEnumerable<Client> GetClients()
 var clientsList = clients.ToList();
 ```
 
-- Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados
+- Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados.
 
 ## Variáveis
 
 - Camel Case (paymentTransaction)
 
-- Variáveis private em contexto de classe não devem ser escritas com _ (underscore).
+- Variáveis `private` em contexto de classe não devem ser escritas com _ (underscore).
 
-- Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
+- Variáveis `private` em contexto de classe devem sempre que possível ser definidas como readonly.
 
 ##### Utilize as keywords
-  Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
+  Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes.
 
 **Ruim:**
 ```c#
@@ -286,9 +286,9 @@ public class SalesController
 
 - Caso tenha necessidade de abrir o escopo de uma variável a contexto de classe converte-la em uma Property
 
-- Sempre que criar Properties reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da class. Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
+- Sempre que criar Properties, reduza ao máximo o acesso de seu setter caso ele seja importante para o funcionamento da classe. Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou seja opcional.
 
-- Assim como variáveis sempre que criar métodos ou classes, reduza seu nível de acesso ao máximo possível e de acordo com a necessidade libere o acesso aos poucos.
+- Assim como variáveis, sempre que criar métodos ou classes, mantenha o nível de acesso o mínimo possível.
 
 ## GIT
 
