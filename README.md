@@ -1,3 +1,8 @@
+## Geral
+
+- Ao implementar uma nova classe ou método, pense em SOLID quando aplicável! 
+- Chamadas a métodos e variáveis não estáticos em contexto de classe devem sempre utilizar o **this**. Em caso de herança utilize **base**
+
 ## Formatação
 
 - O código sempre deve ser escrito em inglês a não ser que seja um acrônimo que impossibilite a tradução e complique o entendimento da regra de negócio
@@ -5,7 +10,7 @@
 - Sempre formatar abertura de chaves na linha seguinte a menos que o trecho de código dentro das chaves seja relativamente simples, neste caso mantenha toda a sentença na mesma linha (incluindo as chaves)
 
 **Ruim:**
-```
+```c#
 if (Condition){
 	// ...Stuff
    	// ...More than one stuff
@@ -13,7 +18,7 @@ if (Condition){
 ```
 
 **Bom:**
-```
+```c#
 if (Condition)
 {
 	// ...Stuff
@@ -25,7 +30,7 @@ if (Condition)
 if (Condition){ // ...Stuff }
 ```
 
-- Máximo de colunas **120**
+- Máximo de colunas 120, porém, este limite pode ser extrapolado caso a quebra de linha prejudique o entendimento do trecho de código.
 
 - Sempre utilizar **{}** nos ifs mesmo que tenha somente uma linha, isso serve para evitar que por engano alguém inclua código sem reparar que as chaves não existam.
  
@@ -68,16 +73,16 @@ this.fallbackSomeService.Execute(someTextInput);
 
 - Ordene suas classes da seguinte maneira:
 
-```
+```c#
 class Example
 {
 	private const int CONST_VARIABLE_EXAMPLE = 0;   // 1° - Variáveis const
 
 	private static readonly string STATIC_READONLY_VARIABLE_EXAMPLE = "Example";	// 2° - Variaveis static readonly
 
-	private static int STATIC_VARIABLE_EXAMPLE = 0; // 3° - Variaveis static
+	private static int staticVariableExample = 0; // 3° - Variaveis static
 
-	private string COMMON_VARIABLE_EXAMPLE = "Example";	// 4° Variaveis comuns
+	private string commomVariableExample = "Example";	// 4° Variaveis comuns
 
 	public Example()	// 5° - Construtores
 	{
@@ -100,15 +105,14 @@ class Example
 
 ## Solution
 
-- Definição de nomes de projetos:
- - Nome da empresa
- - Nome do produto
- - Nome do módulo
+**Definição de nomes de projetos:**
+> Nome da empresa, nome do produto e por último o nome do módulo
 
 - Para solution `<Empresa>.<Produto>` - Exemplo Cappta.Gp
 
 - Para projetos `<Empresa>.<Produto>.<Módulo>` - Exemplo Cappta.Gp.TefEngine
- - Class libraries devem sempre ser criadas como Portable Class Libraries, pois assim garantimos a compatibilidade entre SO. A menos que seja uma implementação específica.​
+
+- Class libraries, se possível, devem ser criadas como .NET Standard Class Libraries, pois assim garantimos a compatibilidade com ambos .NET Framework e .NET Core, o que aumenta a sua portabilidade entre sistemas operacionais.
 
 ## Classes
 
@@ -118,7 +122,7 @@ class Example
 
 - Mantenha tudo o menos acessível possível somente aumente o acesso a classe quando necessário.
 
-- Ao implementar uma nova classe pense em SOLID quando aplicavel 
+- 
 
 - Prefira utilizar o construtor para realizar a inicialização de propriedades obrigatórias.
 
@@ -141,18 +145,13 @@ var transaction = new Transaction
 ```
 
 ## Métodos
-
-- As regras abaixo são validas para todos os níveis de acesso (private, protected, internal e public).
+> As regras abaixo são validas para todos os níveis de acesso (private, protected, internal e public). 
 
 - Pascal Case: **DoItNow**
 
 - Nomes devem representar a ação que está sendo executada.
 
-- Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique muito grande e seja lido simplesmente pelo fluxo de seus métodos.
-
-- Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo (após a alteração analise se a leitura não ficou melhor).
-
-- Chamadas a métodos não estáticos em contexto de classe devem sempre utilizar o **this**, em caso de herança utilize **base**
+- Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique grande e possa ser lido de forma fluída e contínua, sem a necessidade de realizar saltos no arquivo de código fonte. Evite separar o comportamento de um método em blocos separados por linhas em branco. Tente extrair o comportamento destes blocos para outros métodos privados e dê nomes significativos para estes.
 
 - Ao utilizar coleções em retornos ou parâmetros sempre defina-os como **IEnumerable**
 
@@ -196,18 +195,18 @@ public IEnumerable<Client> GetClients()
 var clientsList = clients.ToList();
 ```
 
-- Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados
+- Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados.
 
 ## Variáveis
 
 - Camel Case (paymentTransaction)
 
-- Variáveis private em contexto de classe não devem ser escritas com _ (underscore)
+- Variáveis `private` em contexto de classe não devem ser escritas com _ (underscore).
 
-- Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
+- Variáveis `private` em contexto de classe devem sempre que possível ser definidas como readonly.
 
 ##### Utilize as keywords
-  Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
+  Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes.
 
 **Ruim:**
 ```c#
@@ -225,14 +224,14 @@ public AddBook(string title, decimal price, int releaseYear);
 
 **Ruim:**
 
-```
-List<string> listObjects = new List<string>();
+```c#
+Object listObjects = new List<Object>();
 ```
 
 **Bom:**
 
-```
-var listObjects = new List<string>();
+```c#
+var listObjects = new List<Object>();
 ```
 
 - Encontre nomes que contextualizem suas variaveis e métodos/classes
@@ -277,9 +276,7 @@ public class SalesController
 
 - Sempre utiliza-las em conjunto com **this** caso estejam em contexto de classe, em caso de herança utilize **base**
 
-- Constantes devem ser definidas em uppercase separando as palavras com **_**
-
-- Variaveis **static readonly** devem utilizar a mesma regra de constantes para serem nomeadas
+- **Constantes** e variáveis **static readonly** devem ser definidas em uppercase separando as palavras com **_** (underscore).
 
 ## Níveis de acesso
 
@@ -289,13 +286,9 @@ public class SalesController
 
 - Caso tenha necessidade de abrir o escopo de uma variável a contexto de classe converte-la em uma Property
 
-- Sempre que criar Properties reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da classe
+- Sempre que criar Properties, reduza ao máximo o acesso de seu setter caso ele seja importante para o funcionamento da classe. Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou seja opcional.
 
-- Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
-
-- Assim como variáveis sempre que criar métodos reduza seu nível de acesso ao máximo possível e de acordo com a necessidade libere o acesso aos poucos.
-
-- O mesmo vale para as classes
+- Assim como variáveis, sempre que criar métodos ou classes, mantenha o nível de acesso o mínimo possível.
 
 ## GIT
 
@@ -341,9 +334,7 @@ public class SalesController
 
 - Montar os testes no padrão AAA (Arrange Act Assert)
 
-- Sempre crie testes para evitar o efeito Bug Jason
-
-- Foque somente nos testes importantes para a regra de negócio
+- Priorize os testes importantes para a regra de negócio
 
 - Utilize a nomeclatura `When_<cenario>_given_that_<contexto>_should_<validacao>`
 
