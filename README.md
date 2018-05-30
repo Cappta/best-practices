@@ -30,7 +30,7 @@ if (Condition)
 if (Condition){ // ...Stuff }
 ```
 
-- Máximo de colunas **120** a menos que a quebra de linha prejudique o entendimento do trecho de código.
+- Máximo de colunas 120, porém, este limite pode ser extrapolado caso a quebra de linha prejudique o entendimento do trecho de código.
 
 - Sempre utilizar **{}** nos ifs mesmo que tenha somente uma linha, isso serve para evitar que por engano alguém inclua código sem reparar que as chaves não existam.
  
