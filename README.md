@@ -1,19 +1,24 @@
+## Geral
+
+- Ao implementar uma nova classe ou método, pense em SOLID quando aplicavel! 
+- Chamadas a métodos e variáveis não estáticos em contexto de classe devem sempre utilizar o **this**. Em caso de herança utilize **base**
+
 ## Formatação
 
 - O código sempre deve ser escrito em inglês a não ser que seja um acrônimo que impossibilite a tradução e complique o entendimento da regra de negócio
 
 - Sempre formatar abertura de chaves na linha seguinte a menos que o trecho de código dentro das chaves seja relativamente simples, neste caso mantenha toda a sentença na mesma linha (incluindo as chaves)
 
-Wrong:
-```
+**Ruim:**
+```c#
 if (Condition){
 	// ...Stuff
    	// ...More than one stuff
 }
 ```
 
-Right:
-```
+**Bom:**
+```c#
 if (Condition)
 {
 	// ...Stuff
@@ -25,7 +30,7 @@ if (Condition)
 if (Condition){ // ...Stuff }
 ```
 
-- Máximo de colunas **120**
+- Máximo de colunas **120** a menos que a quebra de linha prejudique o entendimento do trecho de código.
 
 - Sempre utilizar **{}** nos ifs mesmo que tenha somente uma linha, isso serve para evitar que por engano alguém inclua código sem reparar que as chaves não existam.
 
@@ -34,7 +39,7 @@ if (Condition){ // ...Stuff }
 #### Inverter a condição
   Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
 
-**Ruim**
+**Ruim:**
 ```c#
 if (string.IsNullOrWhiteSpace(someTextInput) == false)
 {
@@ -46,7 +51,7 @@ if (string.IsNullOrWhiteSpace(someTextInput) == false)
 throw new ArgumentNullException("Input is empty");
 ```
 
-**Bom**
+**Bom:**
 ```c#
 if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
 
@@ -59,7 +64,7 @@ this.fallbackSomeService.Execute(someTextInput);
 
 - Ordene suas classes da seguinte maneira:
 
-```
+```c#
 class Example
 {
 	private const int CONST_VARIABLE_EXAMPLE = 0;   // 1° - Variáveis const
@@ -68,7 +73,7 @@ class Example
 
 	private static int STATIC_VARIABLE_EXAMPLE = 0; // 3° - Variaveis static
 
-	private string COMMON_VARIABLE_EXAMPLE = "Example";	// 4° Variaveis comuns
+	private string commomVariableExample = "Example";	// 4° Variaveis comuns
 
 	public Example()	// 5° - Construtores
 	{
@@ -91,15 +96,14 @@ class Example
 
 ## Solution
 
-- Definição de nomes de projetos:
- - Nome da empresa
- - Nome do produto
- - Nome do módulo
+**Definição de nomes de projetos:**
+> Nome da empresa, nome do produto e por último o nome do módulo
 
 - Para solution `<Empresa>.<Produto>` - Exemplo Cappta.Gp
 
 - Para projetos `<Empresa>.<Produto>.<Módulo>` - Exemplo Cappta.Gp.TefEngine
- - Class libraries devem sempre ser criadas como Portable Class Libraries, pois assim garantimos a compatibilidade entre SO. A menos que seja uma implementação específica.​
+
+- Class libraries devem sempre ser criadas como .NET Standard Class Libraries, pois assim garantimos a compatibilidade entre SO. A menos que seja uma implementação específica.​
 
 ## Classes
 
@@ -109,25 +113,20 @@ class Example
 
 - Mantenha tudo o menos acessível possível somente aumente o acesso a classe quando necessário.
 
-- Ao implementar uma nova classe pense em SOLID quando aplicavel 
+- 
 
 - Prefira utilizar o construtor para realizar a inicialização de propriedades obrigatórias.
 
 - Utilize object initializer para configurar propriedades opcionais ou de configuração.
 
 ## Métodos
-
-- As regras abaixo são validas para todos os níveis de acesso (private, protected, internal e public).
+> As regras abaixo são validas para todos os níveis de acesso (private, protected, internal e public). 
 
 - Pascal Case: **DoItNow**
 
 - Nomes devem representar a ação que está sendo executada.
 
-- Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique muito grande e seja lido simplesmente pelo fluxo de seus métodos.
-
-- Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo (após a alteração analise se a leitura não ficou melhor).
-
-- Chamadas a métodos não estáticos em contexto de classe devem sempre utilizar o **this**, em caso de herança utilize **base**
+- Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique muito grande e seja lido simplesmente pelo fluxo de seus métodos. Ao separar o comportamento de um método em blocos para facilitar a leitura considere refatorar o comportamento para outro método private que seja responsável pela ação e dê a ele um nome significativo.
 
 - Ao utilizar coleções em retornos ou parâmetros sempre defina-os como **IEnumerable**
 
@@ -137,36 +136,36 @@ class Example
 
 - Camel Case (paymentTransaction)
 
-- Variáveis private em contexto de classe não devem ser escritas com _ (underscore)
+- Variáveis private em contexto de classe não devem ser escritas com _ (underscore).
 
 - Variáveis private em contexto de classe devem sempre que possível ser definidas como readonly.
 
 ##### Utilize as keywords
   Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes
 
-**Ruim**
+**Ruim:**
 ```c#
 using System;
 //...
 public AddBook(String title, Decimal price, Int32 releaseYear);
 ```
 
-**Bom**
+**Bom:**
 ```c#
 public AddBook(string title, decimal price, int releaseYear);
 ```
 
 - Utilize a keyword **var** para definir a declaração de variaveis locais
 
-Wrong:
+**Ruim:**
 
-```
+```c#
 Object listObjects = new List<Object>();
 ```
 
-Right:
+**Bom:**
 
-```
+```c#
 var listObjects = new List<Object>();
 ```
 
@@ -178,9 +177,7 @@ var listObjects = new List<Object>();
 
 - Sempre utiliza-las em conjunto com **this** caso estejam em contexto de classe, em caso de herança utilize **base**
 
-- Constantes devem ser definidas em uppercase separando as palavras com **_**
-
-- Variaveis **static readonly** devem utilizar a mesma regra de constantes para serem nomeadas
+- **Constantes** e variáveis **static readonly** devem ser definidas em uppercase separando as palavras com **_** (underscore).
 
 ## Níveis de acesso
 
@@ -190,13 +187,9 @@ var listObjects = new List<Object>();
 
 - Caso tenha necessidade de abrir o escopo de uma variável a contexto de classe converte-la em uma Property
 
-- Sempre que criar Properties reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da classe
+- Sempre que criar Properties reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da class. Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
 
-- Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
-
-- Assim como variáveis sempre que criar métodos reduza seu nível de acesso ao máximo possível e de acordo com a necessidade libere o acesso aos poucos.
-
-- O mesmo vale para as classes
+- Assim como variáveis sempre que criar métodos ou classes, reduza seu nível de acesso ao máximo possível e de acordo com a necessidade libere o acesso aos poucos.
 
 ## GIT
 
@@ -242,9 +235,7 @@ var listObjects = new List<Object>();
 
 - Montar os testes no padrão AAA (Arrange Act Assert)
 
-- Sempre crie testes para evitar o efeito Bug Jason
-
-- Foque somente nos testes importantes para a regra de negócio
+- Priorize os testes importantes para a regra de negócio
 
 - Utilize a nomeclatura `When_<cenario>_given_that_<contexto>_should_<validacao>`
 
@@ -256,7 +247,7 @@ var listObjects = new List<Object>();
 #### Evite rethrow
   Evitar ao máximo o uso de rethrow em Exceptions
 
-**Ruim**
+**Ruim:**
 ```c#
 try 
 {
@@ -267,7 +258,7 @@ catch (Exception e) {
 }
 ```
 
-**Bom**
+**Bom:**
 ```c#
 try 
 {
