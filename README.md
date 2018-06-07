@@ -149,10 +149,23 @@ class Example
 	{
 		if(someParameter == null)
 		{
-			throw new ArgumentNullException(name(aomeParameter));
+			throw new ArgumentNullException(nameof(someParameter));
 		}
 		
 		this.Bar(someParameter.SomeField);
+	}
+	```
+- Para verificações de parametros em construtores utilize o [operador null coalescing] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
+
+	```c#
+	public class Foo
+	{
+		private object someField;
+
+		public Foo(object someParameter)
+		{
+			this.someField = someParameter ?? throw new ArgumentNullException(nameof(someParameter));
+		}
 	}
 	```
 
