@@ -123,9 +123,6 @@ class Example
 - Mantenha tudo o menos acessível possível somente aumente o acesso a classe quando necessário.
 	https://www.codingblocks.net/podcast/episode-23-back-to-basics-encapsulation-for-object-oriented-programming/
 
-
-- 
-
 - Prefira utilizar o construtor para realizar a inicialização de propriedades obrigatórias.
 
 - Utilize object initializer para configurar propriedades opcionais ou de configuração.
@@ -198,6 +195,40 @@ var clientsList = clients.ToList();
 ```
 
 - Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados.
+
+	**Ruim**
+	```c#
+	public void Foo(object someParameter)
+	{
+		this.Bar(someParameter.SomeField);
+	}
+	```
+
+	**Bom**
+	```c#
+	public void Foo(object someParameter)
+	{
+		if(someParameter == null)
+		{
+			throw new ArgumentNullException(nameof(someParameter));
+		}
+		
+		this.Bar(someParameter.SomeField);
+	}
+	```
+- Para verificações de parametros em construtores utilize o [operador null coalescing] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
+
+	```c#
+	public class Foo
+	{
+		private object someField;
+
+		public Foo(object someParameter)
+		{
+			this.someField = someParameter ?? throw new ArgumentNullException(nameof(someParameter));
+		}
+	}
+	```
 
 	**Ruim**
 	```c#
@@ -337,10 +368,7 @@ public class SalesController
 		public object SomeField {get;set;}
 	}
 	```
-
-<<<<<<< HEAD
-- Sempre que criar Properties, reduza ao máximo o acesso de seu setter caso ele seja importante para o funcionamento da classe. Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou seja opcional.
-=======
+	
 - Sempre que criar Properties reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da classe
 
 	**Ruim**
@@ -373,7 +401,6 @@ public class SalesController
 	```
 
 - Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
->>>>>>> Add code examples and references from tasks cj2~cj5
 
 - Assim como variáveis, sempre que criar métodos ou classes, mantenha o nível de acesso o mínimo possível.
 
