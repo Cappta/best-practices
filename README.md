@@ -351,7 +351,7 @@ public class SalesController
 
 - Variaveis em contexto de classe sempre serão private
 
-- Caso tenha necessidade de abrir o escopo de uma variável a contexto de classe converte-la em uma Property
+- Não exponha variáveis de uma classe deixando-as públicas. Se precisar compartilhar o dado com outras classes, transforme a variável numa propriedade com get público
 	
 	**Ruim**
 	```c#
@@ -369,7 +369,7 @@ public class SalesController
 	}
 	```
 	
-- Sempre que criar Properties reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da classe
+- Sempre que criar propriedades reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da classe
 
 	**Ruim**
 	```c#
