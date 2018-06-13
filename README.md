@@ -230,40 +230,6 @@ var clientsList = clients.ToList();
 	}
 	```
 
-	**Ruim**
-	```c#
-	public void Foo(object someParameter)
-	{
-		this.Bar(someParameter.SomeField);
-	}
-	```
-
-	**Bom**
-	```c#
-	public void Foo(object someParameter)
-	{
-		if(someParameter == null)
-		{
-			throw new ArgumentNullException(nameof(someParameter));
-		}
-		
-		this.Bar(someParameter.SomeField);
-	}
-	```
-- Para verificações de parametros em construtores utilize o [operador null coalescing] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
-
-	```c#
-	public class Foo
-	{
-		private object someField;
-
-		public Foo(object someParameter)
-		{
-			this.someField = someParameter ?? throw new ArgumentNullException(nameof(someParameter));
-		}
-	}
-	```
-
 ## Variáveis
 
 - Camel Case (paymentTransaction)
