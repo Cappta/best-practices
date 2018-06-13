@@ -30,7 +30,7 @@ if (Condition)
 if (Condition){ // ...Stuff }
 ```
 
-- Linhs de código devem seguir, preferencialmente, o limte de 120 colunas. Contudo, este limite pode ser extendido para 160 caso o entendimento do código fique prejudicado com a quebra da linha.
+- Linhas de código devem seguir, preferencialmente, o limite de 120 colunas. Contudo, este limite pode ser extendido para 160 caso o entendimento do código fique prejudicado com a quebra da linha.
 
 - Sempre utilizar **{}** nos ifs mesmo que tenha somente uma linha, isso serve para evitar que por engano alguém inclua código sem reparar que as chaves não existam.
  
