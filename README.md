@@ -68,8 +68,8 @@ public static void WriteLineReadLineConvertToUpper(string message)
 		Write(message);
 		Console.WriteLine();
 	
-		String R = Console.ReadLine();
-		String ConvertToUpper = R.ToUpper();
+		var R = Console.ReadLine();
+		var ConvertToUpper = R.ToUpper();
 	}
 ```
 
