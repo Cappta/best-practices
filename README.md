@@ -33,7 +33,7 @@
 
 - Para solution `<Empresa>.<Produto>` - Exemplo Cappta.Gp
 
-- Para projetos `<Empresa>.<Produto>.<Módulo>` - Exemplo Cappta.Gp.çTefEngine
+- Para projetos `<Empresa>.<Produto>.<Módulo>` - Exemplo Cappta.Gp.TefEngine
  - Class libraries devem sempre ser criadas como Portable Class Libraries, pois assim garantimos a compatibilidade entre SO. A menos que seja uma implementação específica.​
 
 ## Classes
