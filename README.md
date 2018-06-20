@@ -199,42 +199,39 @@ public const double MeterFeet = 3.2808398950131233595800524934383;
 **Ruim**
 
 ```c#
-// Um programa em C#.
-using System;
-namespace HelloWorld
-{
-	// Minha Classe
-    	class Hello 
-    	{
-    	//Metódo principal
-        	static void Main() 
-        	{
-        		//exibir a menssagem
-            		Console.WriteLine("Hello World!");
+internal static class SomeThing
+	{
+		public static string LegacyAppDoSomething()
+		{
+			// ...Stuff
+   			// ...More than one stuff
+		}
 
-            		// Permanecer na tela até que insira um valor via teclado.
-            		Console.WriteLine("Press any key to exit.");
-            		Console.ReadKey();
-        	}
-    	}
+		public static string AppDoSomething()
+		{
+			// ...Stuff
+   			// ...More than one stuff
+		}
+		
+	}
 }
 ```
 
 **Bom**
 
 ```c#
-using System;
-namespace HelloWorld
-{
-	class Hello 
-    	{
-        	static void Main() 
-        	{
-            		Console.WriteLine("Hello World!");
-            		Console.WriteLine("Press any key to exit.");
-            		Console.ReadKey();
-        	}
-    	}
+internal static class SomeThing
+	{
+
+		//Remove the Method afte Refactoring
+		
+		public static string AppDoSomething()
+		{
+			// ...Stuff
+   			// ...More than one stuff
+		}
+		
+	}
 }
 ```
 
