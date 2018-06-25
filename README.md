@@ -65,11 +65,11 @@
 ```c#
 public static void WriteLineReadLineConvertToUpper(string message)
 	{
-		Write(message);
-		Console.WriteLine();
+	    Write(message);
+	    Console.WriteLine();
 	
-		var R = Console.ReadLine();
-		var ConvertToUpper = R.ToUpper();
+	    var R = Console.ReadLine();
+	    var ConvertToUpper = R.ToUpper();
 	}
 ```
 
@@ -78,8 +78,8 @@ public static void WriteLineReadLineConvertToUpper(string message)
 ```c#
 public static void WriteLine(string message)
 	{
-		Write(message);
-		Console.WriteLine();
+	    Write(message);
+	    Console.WriteLine();
 	}
 ```
 
@@ -102,13 +102,13 @@ public static void WriteLine(string message)
 ```c#
 public static class CnpjGenerator
 	{
-		private static readonly ulong CNPJ_MAX_VALUE = (ulong)Math.Pow(10, 14) - 1;
-		private static readonly Random random = new Random();
+	    private static readonly ulong CNPJ_MAX_VALUE = (ulong)Math.Pow(10, 14) - 1;
+	    private static readonly Random random = new Random();
 
-		public static string Next()
-		{
-			return random.NextULong(CNPJ_MAX_VALUE).ToString("D14");
-		}
+	    public static string Next()
+	    {
+	        return random.NextULong(CNPJ_MAX_VALUE).ToString("D14");
+	    }
 	}
 ```
 
@@ -203,14 +203,14 @@ internal static class SomeThing
 	{
 		public static string LegacyAppDoSomething()
 		{
-			// ...Stuff
-   			// ...More than one stuff
+		    // ...Stuff
+   		    // ...More than one stuff
 		}
 
 		public static string AppDoSomething()
 		{
-			// ...Stuff
-   			// ...More than one stuff
+		    // ...Stuff
+   		    // ...More than one stuff
 		}
 		
 	}
@@ -222,14 +222,13 @@ internal static class SomeThing
 ```c#
 internal static class SomeThing
 	{
-
-		//Remove the Method afte Refactoring
+	    //Remove the Method afte Refactoring
 		
-		public static string AppDoSomething()
-		{
-			// ...Stuff
-   			// ...More than one stuff
-		}
+	public static string AppDoSomething()
+	    {
+	        // ...Stuff
+   		// ...More than one stuff
+	    }
 		
 	}
 }
