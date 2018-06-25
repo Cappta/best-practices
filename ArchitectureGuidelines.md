@@ -1,4 +1,4 @@
-#Guia de Arquitetura
+# Guia de Arquitetura
 
 Desenvolvedores são responsáveis por criar as ferramentas que compõem negócios e transformam o mundo. Na Cappta não é diferente: trabalhamos duro para criar soluções que facilitem a vida do empreendedor no varejo brasileiro, e essa missão não é nada fácil! 
 
@@ -6,7 +6,7 @@ Você já ouviu algo parecido: especificações e necessidades mudam a todo mome
 
 Arquitetura e design de software é um tema controverso na comunidade, onde especialistas debatem sobre qual o melhor modelo. Mas será que existe um padrão de arquitetura melhor que os demais? A resposta para essa pergunta é a mesma para outras diversas perguntas em tecnologia: DEPENDE do que você está querendo construir. Dessa forma, a proposta deste texto não é te dizer "a melhor" arquitetura, mas sim trazer conceitos e principios de design que te auxiliem no processo de desenvolvimento para atingir esse objetivo.
 
-##SOLID
+## SOLID
 
 Se você está escrevendo software na Cappta, chance é que você está usando alguma linguagem de programação orientada a objetos. Provavelemente, você está usando .NET, ou escrevendo algum módulo em JavaScript para uma API em Node ou uma pagína em Angular, talvez seu time esteja pensando em usar Python, ou Java (bleh()). Não importa, SOLID se ajusta a todas elas.
 
@@ -14,11 +14,11 @@ SOLID não são padrões de projetos ou modelos de arquitetura mais sim princíp
 
 (A também quem diga que SOLID vale para [paradigma funcional](http://blog.ploeh.dk/2014/03/10/solid-the-next-step-is-functional/))
 
-###O que é SOLID ?
+### O que é SOLID ?
 
 **O termo SOLID é um acrônimo para 5 princípios de design e programação orientada a objetos** identificados por Robert C. Martin (Uncle Bob) por volta dos anos 2000. É importante destacar a palavra **princípios** para não confundirmos SOLID com *design patterns* que são soluções reutilizáveis para problemas de programação recorrentes que podem e são utilizados para atingir os principios de SOLID.
 
-###Os princípios
+### Os princípios
 Os princípios do SOLID são:
 
 **S**ingle Responsability Principle
@@ -41,9 +41,9 @@ Links para aprender sobre o assunto:
 - curso da Alura de [SOLID com C#](https://cursos.alura.com.br/course/orientacao-a-objetos-avancada-e-principios-solid-csharp);
 - [palestra do Uncle Bob](https://www.youtube.com/watch?v=t86v3N4OshQ) sobre o tema;
 
-##Database Centric Architecture
+## Database Centric Architecture
 
-###O que é?
+### O que é?
 Neste modelo de arquitetura, **todas as dependências do software apontam para o banco de dados**. Este padrão faz uso em larga escala de stored-procedures, triggers e views (SQL) para processamento de regras de negócio que rodam no servidor de banco de dados ao invés de lógica em aplicações construídas com linguagem de alto-nível (C#, Java, etc.). O sistema tem alto grau de acoplamento com a modelagem do banco de dados, geralmente feita antes e representando o núcleo do projeto.
 
 Para o padrão *database centric* os dados e os objetos de BD são os componentes mais valiosos do sistema, e o banco de dados é geralmente utilizado por diversas aplicações - é dessa forma atingem que atigem reusabilidade de código (stored procedures e funções SQL no banco de dados).
