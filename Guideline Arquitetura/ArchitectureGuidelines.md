@@ -2,13 +2,13 @@
 
 Desenvolvedores são responsáveis por criar as ferramentas que compõem negócios e transformam o mundo. Na Cappta não é diferente: trabalhamos duro para criar soluções que facilitem a vida do empreendedor no varejo brasileiro, e essa missão não é nada fácil! 
 
-Você já ouviu algo parecido: especificações e necessidades mudam a todo momento e os sitemas que desenvolvemos precisam ser capazes de acompanhar essas transformações nos negócios, mas como fazer isso? Como "desenhar" um sistema para que ele seja saúdavel, extensível e que não seja um pesadelo para a galera que vai fazer a sustentação dele?
+Você já ouviu algo parecido: especificações e necessidades mudam a todo momento e os sistemas que desenvolvemos precisam ser capazes de acompanhar essas transformações nos negócios, mas como fazer isso? Como "desenhar" um sistema para que ele seja saúdavel, extensível e que não seja um pesadelo para a galera que vai fazer a sustentação dele?
 
 Arquitetura e design de software são um temas controversos na comunidade, onde especialistas debatem constantemente sobre qual o melhor modelo. Mas será que existe um padrão de arquitetura melhor que os demais? A resposta para essa pergunta é a mesma para outras diversas perguntas em tecnologia: DEPENDE do que você quer construir. Dessa forma, a proposta deste texto não é te dizer "a melhor arquitetura", mas trazer conceitos e princípios que auxiliem a criação de bons softwares. :)
 
 ## SOLID
 
-Se você está escrevendo software na Cappta, chance é que você está usando alguma linguagem de programação orientada a objetos. Provavelemente você está usando .NET, ou escrevendo algum módulo em JavaScript para uma API em Node ou uma pagína em Angular, talvez seu time esteja pensando em usar Python, ou Java (bleh()). Não importa, SOLID se ajusta a todas elas.
+Se você está escrevendo software na Cappta, a chance é que você está usando alguma linguagem de programação orientada a objetos. Provavelmente você está usando .NET, ou escrevendo algum módulo em JavaScript para uma API em Node ou uma pagína em Angular, talvez seu time esteja pensando em usar Python, ou Java (bleh()). Não importa, SOLID se ajusta a todas elas.
 
 SOLID não são padrões de projetos ou modelos de arquitetura mais sim princípios de *design* que guiam o desenvolvedor\arquiteto de software a escrever e pensar em módulos de alta coesão e baixo acoplamento, diminuindo o custo de manunteção e extensão.
 
@@ -58,7 +58,7 @@ O modelo *database centric* é um modelo simples de arquitetura, que juntamente 
 
 Neste padrão de arquitetura, todas as dependências do sistema apontam para a camada de **domínio** (*DomainModel*, *Domain*, etc.), residente em softrware midleware geralmente escrito em linguagem de programação de alto nível (Java, C#, Python, etc). 
 
-Nesta camada as entidades e casos de uso do projeto (regras de negócio) residem isoladas do restante,permitindo extensa cobertura de teste do domínio livre de dependencias das demais camadas do projeto, outros sistemas e de infraestrutura (APIs, BDs, etc.)
+Nesta camada as entidades e casos de uso do projeto (regras de negócio) residem isoladas do restante,permitindo extensa cobertura de teste do domínio livre de dependências das demais camadas do projeto, de outros sistemas e de infraestrutura (APIs, BDs, etc.).
 
 Neste padrão de arquitetura, o domínio é o ativo mais valioso de todo o sistema, e constitue o núcleo da aplicação. O restante como camadas de apresentação e persistência são considerados detalhes de implementação e ficam entorno do domínio. Este conceito pode ser expresso através da máxima de Uncle Bob : "A primeira preocupação da arquitetura é ter certeza que a casa é utilizável, não é para garantir que a casa é feita de tijolos".
 
