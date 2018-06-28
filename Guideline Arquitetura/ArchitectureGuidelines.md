@@ -71,5 +71,7 @@ Existem muitas implementações de arquiteturas *Domain Centric*, entre elas a _
 A arquitetura orientada a domínio, é melhor utilizada em projetos com domínios complexos, aonde existam a representação de fluxos e processos que envolvem diversos setores, atores e sistemas. O mau uso desta arquitetura pode tornar um projeto simples, em algo desnecessariamente complexo.
 
 Para aprender mais: 
+
 [Clean Arquitecture - Patterns, Practices and Principles](https://www.pluralsight.com/courses/clean-architecture-patterns-practices-principles)
+
 [SOLID](https://en.wikipedia.org/wiki/SOLID)
