@@ -152,3 +152,8 @@ catch (Exception ex)
 	ShowDialog(ErrorCode.UnknownError, "Unexpected error happened");
 }
 ```
+
+
+[Home](https://github.com/Cappta/best-practices)
+
+[Anterior](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Tests.md)

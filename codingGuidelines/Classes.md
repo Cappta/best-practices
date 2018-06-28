@@ -26,3 +26,9 @@ var transaction = new Transaction
     Type = "Credit"
 };
 ```
+
+[Home](https://github.com/Cappta/best-practices)
+
+[Próximo](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Methods.md)
+
+[Anterior](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Solution.md)

@@ -78,3 +78,10 @@ public class SalesController
 - Sempre utiliza-las em conjunto com **this** caso estejam em contexto de classe, em caso de herança utilize **base**
 
 - **Constantes** e variáveis **static readonly** devem ser definidas em uppercase separando as palavras com **_** (underscore).
+
+
+[Home](https://github.com/Cappta/best-practices)
+
+[Próximo](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/AccessLevels.md)
+
+[Anterior](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Methods.md)

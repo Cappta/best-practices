@@ -23,3 +23,11 @@
 - Utilize a nomeclatura `When_<cenario>_given_that_<contexto>_should_<validacao>`
 
 - Já te falei para executar os testes?
+
+
+
+[Home](https://github.com/Cappta/best-practices)
+
+[Próximo](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Exceptions.md)
+
+[Anterior](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Comments.md)

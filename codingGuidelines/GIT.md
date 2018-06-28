@@ -13,3 +13,10 @@
 - Treine o habito de criar commits regulares para evitar conflitos monstruosos no git
 
 Mais detalhes de boas práticas no git, siga  as instuções do [Git Guide Style](https://github.com/Cappta/cappta-best-practices/tree/master/gitStyleGuide)  da Stone
+
+
+[Home](https://github.com/Cappta/best-practices)
+
+[Próximo](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Comments.md)
+
+[Anterior](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/AccessLevels.md)

@@ -97,3 +97,7 @@ class Example
 	}
 }
 ```
+
+[Home](https://github.com/Cappta/best-practices)
+
+[Próximo](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Solution.md)

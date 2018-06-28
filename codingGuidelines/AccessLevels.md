@@ -56,3 +56,10 @@
 - Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
 
 - Assim como variáveis, sempre que criar métodos ou classes, mantenha o nível de acesso o mínimo possível.
+
+
+[Home](https://github.com/Cappta/best-practices)
+
+[Próximo](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/GIT.md)
+
+[Anterior](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Variables.md)

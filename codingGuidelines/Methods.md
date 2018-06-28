@@ -84,3 +84,10 @@ var clientsList = clients.ToList();
 		}
 	}
 	```
+	
+	
+[Home](https://github.com/Cappta/best-practices)
+
+[Próximo](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Variables.md)
+
+[Anterior](https://github.com/Cappta/best-practices/blob/master/codingGuidelines/Classes.md)
