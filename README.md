@@ -1,4 +1,4 @@
-##Boas práticas de desenvolvimento - Guidelines
+## Boas práticas de desenvolvimento - Guidelines
 
 Esse guia tem por objetivo homogenizar os códigos desenvolvidos facilitando o entendimento dos projetos e colaboração. 
 Abaixo seguem as instuções a serem seguidas ao desenvolver um projeto na Cappta.
