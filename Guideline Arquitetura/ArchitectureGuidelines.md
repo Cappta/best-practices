@@ -21,19 +21,19 @@ SOLID não são padrões de projetos ou modelos de arquitetura mais sim princíp
 ### Os princípios
 Os princípios do SOLID são:
 
-**S**ingle Responsability Principle
+_**S**ingle Responsability Principle_
     - entidades de software devem ter apenas uma responsabilidade (deve fazer apenas uma coisa) ou uma classe deve ter um, e somente um, motivo para mudar;
 
-**O**pen/Closed Principle
+_**O**pen/Closed Principle_
     - uma classe deve ser aberta para extensão mas fechada para modificação, ou seja, introdução de novos comportamentos\funcionalidades não deve quebrar código existente;
 
-**L**iskov Substituiton Principle
+_**L**iskov Substituiton Principle_
     - entidades de software (classes) devem ser substítuiveis por instâncias derivadas (sub-classes) sem afetar a exatidão do programa;
 
-**I**nterface Segregation Princicple
+_**I**nterface Segregation Princicple_
     - segregar comportamentos em diversas interfaces é melhor do que ter uma interface de proposito geral;
 
-**D**ependency Inversion Principle
+_**D**ependency Inversion Principle_
     - módulos de alto nível não devem depender de módulos de baixo nível, ou seja, abstrações não devem depender de detalhes, detalhes devem depender de abstrações.
 
 Links para aprender sobre o assunto:
@@ -44,9 +44,9 @@ Links para aprender sobre o assunto:
 ## Database Centric Architecture
 
 ### O que é?
-Neste modelo de arquitetura, **todas as dependências do software apontam para o banco de dados**. Este padrão faz uso em larga escala de stored-procedures, triggers e views (SQL) para processamento de regras de negócio que rodam no servidor de banco de dados ao invés de lógica em aplicações construídas com linguagem de alto-nível (C#, Java, etc.). O sistema tem alto grau de acoplamento com a modelagem do banco de dados, geralmente feita antes e representando o núcleo do projeto.
+Neste modelo de arquitetura, **todas as dependências do software apontam para o banco de dados**. Este padrão faz uso em larga escala de _stored-procedures_, _triggers_ e _views_ (SQL) para processamento de regras de negócio que rodam no servidor de banco de dados ao invés de lógica em aplicações construídas com linguagem de alto-nível (C#, Java, etc.). O sistema tem alto grau de acoplamento com a modelagem do banco de dados, geralmente feita antes e representando o núcleo do projeto.
 
-Para o padrão *database centric* os dados e os objetos de BD são os componentes mais valiosos do sistema, e o banco de dados é geralmente utilizado por diversas aplicações - é dessa forma atingem reusabilidade de código (stored procedures e funções SQL no banco de dados).
+Para o padrão *database centric* os dados e os objetos de BD são os componentes mais valiosos do sistema, e o banco de dados é geralmente utilizado por diversas aplicações - é dessa forma atingem reusabilidade de código (_stored procedures_ e funções SQL no banco de dados).
 
 Este modelo de arquitetura juntamente com a metodologia de desenvolvimento em cascata, são os padrões mais difundido nos cursos de computação pelo mundo afora e, apesar de serem independentes, esse "pacote" é apresentado através do conhecido padrão de **arquitetura em 3 camadas**, onde temos uma camada de Apresentação (camada de UI), uma camada de aplicação (camada contendo as regras de negócio) e uma camada de acesso a dados (lógica de acesso a dados e conexão com banco de dados).
 
@@ -62,7 +62,7 @@ Nesta camada as entidades e casos de uso do projeto (regras de negócio) residem
 
 Neste padrão de arquitetura, o domínio é o ativo mais valioso de todo o sistema, e constitue o núcleo da aplicação. O restante como camadas de apresentação e persistência são considerados detalhes de implementação e ficam entorno do domínio. Este conceito pode ser expresso através da máxima de Uncle Bob : "A primeira preocupação da arquitetura é ter certeza que a casa é utilizável, não é para garantir que a casa é feita de tijolos".
 
-A implementação deste tipo de arquitetura é mais custosa que outros pois demanda o aprendizado de diversas técnicas e padrões (DDD, BDD, design patterns, frameworks de teste, etc.) tornando a curva de aprendizado de sua implementação mais acentuada que em outros modelos, portanto este tipo de arquitetura é utilizado para modelar e resolver problemas de domínios complexos.
+A implementação deste tipo de arquitetura é mais custosa que outros pois demanda o aprendizado de diversas técnicas e padrões (DDD, BDD, design patterns, _frameworks_ de teste, etc.) tornando a curva de aprendizado de sua implementação mais acentuada que em outros modelos, portanto este tipo de arquitetura é utilizado para modelar e resolver problemas de domínios complexos.
 
 Existem muitas implementações de arquiteturas *Domain Centric*, entre elas a _Hexagonal_, a _Onion_ e a _Clean Architecture_, _Microservices_. Procure a que melhor atenda a necessidade de seu negócio.
 

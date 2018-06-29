@@ -1,13 +1,13 @@
 ## Variáveis
 
-- Camel Case (paymentTransaction)
+- _Camel Case_ (paymentTransaction)
 
-- Variáveis `private` em contexto de classe não devem ser escritas com _ (underscore).
+- Variáveis `private` em contexto de classe não devem ser escritas com _ (_underscore_).
 
 - Variáveis `private` em contexto de classe devem sempre que possível ser definidas como readonly.
 
 ##### Utilize as keywords
-  Para tipos primitivos sempre utilize as keywords e nunca utilize suas classes.
+  Para tipos primitivos sempre utilize as _keywords_ e nunca utilize suas classes.
 
 **Ruim:**
 ```c#
@@ -35,7 +35,7 @@ Object listObjects = new List<Object>();
 var listObjects = new List<Object>();
 ```
 
-- Encontre nomes que contextualizem suas variaveis e métodos/classes
+- Encontre nomes que contextualizem suas variáveis e métodos/classes
 
 **Ruim:**
 ```c#
@@ -71,13 +71,13 @@ public class SalesController
 }
 ```
 
-- Magic numbers ou Strings utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
+- _Magic numbers_ ou _strings_ utilizadas em algoritmos devem ser sempre definidos como constantes dentro da classe para facilitar o entendimento.
 
-- Strings quando de mensagens para o usuário (seja final ou programador) devem ser utilizadas a partir um arquivo de *.resx dentro do projeto que a contém, além do fato disso garantir o reaproveitamento facilita no entendimento do código e desacopla detalhes de implementação de UI.
+- _Strings_ quando de mensagens para o usuário (seja final ou programador) devem ser utilizadas a partir um arquivo de *.resx dentro do projeto que a contém, além do fato disso garantir o reaproveitamento facilita no entendimento do código e desacopla detalhes de implementação de UI.
 
 - Sempre utiliza-las em conjunto com **this** caso estejam em contexto de classe, em caso de herança utilize **base**
 
-- **Constantes** e variáveis **static readonly** devem ser definidas em uppercase separando as palavras com **_** (underscore).
+- **Constantes** e variáveis **static readonly** devem ser definidas em _uppercase_ separando as palavras com **_** (_underscore_).
 
 
 [Home](https://github.com/Cappta/best-practices)

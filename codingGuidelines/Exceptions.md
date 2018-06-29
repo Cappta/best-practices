@@ -29,7 +29,7 @@ catch(Exception ex)
 
 [Referência](https://stackoverflow.com/questions/881473/why-catch-and-rethrow-an-exception-in-c)
 
-Sempre que possível realizar o tratamento de Exceptions especificas. Evitando algo como: 
+Sempre que possível realizar o tratamento de exceções especificas. Evitando algo como: 
 
 ```c#
 try 

@@ -2,9 +2,9 @@
 
 - Sempre diminuir o máximo possível o acesso
 
-- Variaveis em contexto de classe sempre serão private
+- Variaveis em contexto de classe sempre serão `private`;
 
-- Não exponha variáveis de uma classe deixando-as públicas. Se precisar compartilhar o dado com outras classes, transforme a variável numa propriedade com get público
+- Não exponha variáveis de uma classe deixando-as públicas. Se precisar compartilhar o dado com outras classes, transforme a variável numa propriedade com `get` público
 	
 	**Ruim**
 	```c#
@@ -22,7 +22,7 @@
 	}
 	```
 	
-- Sempre que criar propriedades reduza ao máximo o acesso de seu setter caso ela seja vital para o funcionamento da classe
+- Sempre que criar propriedades reduza ao máximo o acesso de seu _setter_ caso ela seja vital para o funcionamento da classe
 
 	**Ruim**
 	```c#
@@ -53,7 +53,7 @@
 	}
 	```
 
-- Mantenha o setter de Properties publico somente caso ele seja algum tipo de configuração ou opcional
+- Mantenha o _setter_ de uma _Property_ público somente caso ele seja algum tipo de configuração ou opcional;
 
 - Assim como variáveis, sempre que criar métodos ou classes, mantenha o nível de acesso o mínimo possível.
 
