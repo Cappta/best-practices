@@ -1,5 +1,5 @@
 ## Métodos
-> As regras abaixo são validas para todos os níveis de acesso (private, protected, internal e public). 
+> As regras abaixo são validas para todos os níveis de acesso (`private`, `protected`, `internal` e `public`). 
 
 - Pascal Case: **DoItNow**
 
@@ -71,7 +71,7 @@ var clientsList = clients.ToList();
 		this.Bar(someParameter.SomeField);
 	}
 	```
-- Para verificações de parametros em construtores utilize o [operador null coalescing] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
+- Para verificações de parametros em construtores utilize o [operador _null coalescing_] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
 
 	```c#
 	public class Foo

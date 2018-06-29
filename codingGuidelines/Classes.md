@@ -9,7 +9,7 @@
 
 - Prefira utilizar o construtor para realizar a inicialização de propriedades obrigatórias.
 
-- Utilize object initializer para configurar propriedades opcionais ou de configuração.
+- Utilize _object initializer_ para configurar propriedades opcionais ou de configuração.
 
 **Ruim:**
 ```c#

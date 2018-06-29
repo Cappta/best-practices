@@ -2,21 +2,21 @@
 
 - Sempre execute seus testes
 
-- Um Assert por método
+- Um _Assert_ por método
 
 - Framework atual MsTest
 
-- Frameworks atuais de Mock Nsubstitute e AutoFixture para gerar valores aleatórios
+- Frameworks atuais de _mock_ _Nsubstitute_ e _AutoFixture_ para gerar valores aleatórios
 
 - Evitar detalhes de implementação nos testes
 
 - Criar o hábito de sempre executar os testes
 
-- Em caso de TDD, utilize o conceito RGR (Red Green Refactor)
+- Em caso de TDD, utilize o conceito RGR (_Red Green Refactor_)
 
 - Sempre rodar testes unitários
 
-- Montar os testes no padrão AAA (Arrange Act Assert)
+- Montar os testes no padrão AAA (_Arrange Act Assert_)
 
 - Priorize os testes importantes para a regra de negócio
 
