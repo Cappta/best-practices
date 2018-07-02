@@ -20,7 +20,7 @@ try
 {
   // code that may throw exceptions    
 }
-catch(Exception ex) 
+catch (Exception ex) 
 {
   // add error logging here
   throw; // This preserves the stack trace

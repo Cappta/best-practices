@@ -26,7 +26,7 @@ public AddBook(string title, decimal price, int releaseYear);
 **Ruim:**
 
 ```c#
-Object listObjects = new List<Object>();
+List<Object> listObjects = new List<Object>();
 ```
 
 **Bom:**
