@@ -7,7 +7,7 @@
 
 - Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique grande e possa ser lido de forma fluída e contínua, sem a necessidade de realizar saltos no arquivo de código fonte. Evite separar o comportamento de um método em blocos separados por linhas em branco. Tente extrair o comportamento destes blocos para outros métodos privados e dê nomes significativos para estes.
 
-- Ao utilizar coleções em retornos ou parâmetros sempre defina-os como **IEnumerable**
+- Ao utilizar coleções em retornos ou parâmetros defina-os como **IEnumerable** sempre que possível. 
 
 **Ruim:**
 ```c#
