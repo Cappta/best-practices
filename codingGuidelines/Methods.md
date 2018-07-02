@@ -7,21 +7,18 @@
 
 - Tente quebrar o comportamento do método de maneira que o fluxo do algoritmo não fique grande e possa ser lido de forma fluída e contínua, sem a necessidade de realizar saltos no arquivo de código fonte. Evite separar o comportamento de um método em blocos separados por linhas em branco. Tente extrair o comportamento destes blocos para outros métodos privados e dê nomes significativos para estes.
 
-- Ao utilizar coleções em retornos ou parâmetros sempre defina-os como **IEnumerable**
+- Ao utilizar coleções em retornos ou parâmetros defina-os como **IEnumerable** sempre que possível. 
 
 **Ruim:**
 ```c#
-var transactions = default(ICollection<Transaction>);
-tasks = this.GetTransactions();
+var transactions = this.GetTransactions();
 
 public IList<Transaction> GetTransactions()
 {
     //do anything that returns IList<Transaction> at the end...
 }
 
-var clients = default(List<Clients>);
-clients = this.GetClients();
-
+var clients = this.GetClients();
 public List<Client> GetClients()
 {
     //do anything that returns List<Client> at the end...
@@ -30,17 +27,14 @@ public List<Client> GetClients()
 
 **Bom:**
 ```c#
-var transactions = default(IEnumerable<Transaction>);
-tasks = this.GetTransactions();
+var transactions = this.GetTransactions();
 
 public IEnumerable<Transaction> GetTransactions()
 {
     //do anything that returns IEnumerable<Transaction> at the end...
 }
 
-var clients = default(IEnumerable<Clients>);
-clients = this.GetClients();
-
+var clients = this.GetClients();
 public IEnumerable<Client> GetClients()
 {
     //do anything that returns IEnumerable<Client> at the end...
@@ -49,7 +43,7 @@ public IEnumerable<Client> GetClients()
 var clientsList = clients.ToList();
 ```
 
-- Sempre valide seus parâmetros de métodos publicos para evitar side effects em lugares indesejados.
+- Sempre valide seus parâmetros de métodos públicos para evitar _side effects_ em lugares indesejados.
 
 	**Ruim**
 	```c#
@@ -71,7 +65,7 @@ var clientsList = clients.ToList();
 		this.Bar(someParameter.SomeField);
 	}
 	```
-- Para verificações de parametros em construtores utilize o [operador _null coalescing_] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
+- Para verificações de parâmetros em construtores, utilize o [operador _null coalescing_] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
 
 	```c#
 	public class Foo

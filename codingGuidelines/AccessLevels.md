@@ -18,7 +18,7 @@
 	```c#
 	public class Foo
 	{
-		public object SomeField {get;set;}
+		public object SomeField { get; set; }
 	}
 	```
 	
@@ -29,7 +29,7 @@
 	public class BankAccount
 	{
 		//setter da propriedade Balance público permite que outro trecho de código altere o saldo da conta livremente
-		public decimal Balance {get;set;}
+		public decimal Balance { get; set; }
 	}
 	```
 

@@ -31,11 +31,11 @@ if (Condition){ // ...Stuff }
  
 **Ruim:**
 ```c#
-if(word.IsNullOrEmpty() == true ) DoNothing();
+if (word.IsNullOrEmpty() == true ) DoNothing();
 ```
 **Bom:**
 ```c#
-if(word.IsNullOrEmpty() == true ) { DoNothing(); }
+if (word.IsNullOrEmpty() == true ) { DoNothing(); }
 ```
 
 - Nunca utilizar **!** e sim **== false**, pois é muito mais fácil um caractere magro no início da sentença passar batido do que a segunda opção.
@@ -81,7 +81,7 @@ class Example
 
 	public Example()	// 5° - Construtores
 	{
-				
+
 	}
 
 	public string PropertieExample { get; set; }	// 6° - Propriedades
@@ -93,7 +93,7 @@ class Example
 
 	public void MethodExample()	// 8° Métodos
 	{
-			//Stuff...
+		//Stuff...
 	}
 }
 ```
