@@ -10,7 +10,7 @@
 - Ao utilizar coleções em retornos ou parâmetros defina-os como **IEnumerable** sempre que possível. 
 
 **Ruim:**
-```c#
+```csharp
 var transactions = this.GetTransactions();
 
 public IList<Transaction> GetTransactions()
@@ -26,7 +26,7 @@ public List<Client> GetClients()
 ```
 
 **Bom:**
-```c#
+```csharp
 var transactions = this.GetTransactions();
 
 public IEnumerable<Transaction> GetTransactions()
@@ -46,7 +46,7 @@ var clientsList = clients.ToList();
 - Sempre valide seus parâmetros de métodos públicos para evitar _side effects_ em lugares indesejados.
 
 	**Ruim**
-	```c#
+	```csharp
 	public void Foo(object someParameter)
 	{
 		this.Bar(someParameter.SomeField);
@@ -54,7 +54,7 @@ var clientsList = clients.ToList();
 	```
 
 	**Bom**
-	```c#
+	```csharp
 	public void Foo(object someParameter)
 	{
 		if(someParameter == null)
@@ -67,7 +67,7 @@ var clientsList = clients.ToList();
 	```
 - Para verificações de parâmetros em construtores, utilize o [operador _null coalescing_] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
 
-	```c#
+	```csharp
 	public class Foo
 	{
 		private object someField;

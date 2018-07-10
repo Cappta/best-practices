@@ -10,14 +10,14 @@
   Para tipos primitivos sempre utilize as _keywords_ e nunca utilize suas classes.
 
 **Ruim:**
-```c#
+```csharp
 using System;
 //...
 public AddBook(String title, Decimal price, Int32 releaseYear);
 ```
 
 **Bom:**
-```c#
+```csharp
 public AddBook(string title, decimal price, int releaseYear);
 ```
 
@@ -25,20 +25,20 @@ public AddBook(string title, decimal price, int releaseYear);
 
 **Ruim:**
 
-```c#
+```csharp
 List<Object> listObjects = new List<Object>();
 ```
 
 **Bom:**
 
-```c#
+```csharp
 var listObjects = new List<Object>();
 ```
 
 - Encontre nomes que contextualizem suas variáveis e métodos/classes
 
 **Ruim:**
-```c#
+```csharp
 public class Utils
 {
     public string PaymChanName { get; set; }
@@ -55,7 +55,7 @@ public class Utils
 ```
 
 **Bom:**
-```c#
+```csharp
 public class SalesController
 {
     public string PaymentChannel { get; set; }
