@@ -2,7 +2,10 @@
 
 - O código sempre deve ser escrito em inglês a não ser que seja um acrônimo que impossibilite a tradução e complique o entendimento da regra de negócio
 
+- Sempre utilizar tabulações ao invés de espaços. Desta forma, cada desenvolvedor pode configurar sua IDE para utilizar o tamanho de indentação que mais o agrada.
+
 - Sempre formatar abertura de chaves na linha seguinte a menos que o trecho de código dentro das chaves seja relativamente simples, neste caso mantenha toda a sentença na mesma linha (incluindo as chaves)
+
 
 **Ruim:**
 ```c#
