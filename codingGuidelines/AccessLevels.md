@@ -7,7 +7,7 @@
 - Não exponha variáveis de uma classe deixando-as públicas. Se precisar compartilhar o dado com outras classes, transforme a variável numa propriedade com `get` público
 	
 	**Ruim**
-	```c#
+	```csharp
 	public class Foo
 	{
 		public object someField;
@@ -15,7 +15,7 @@
 	```
 
 	**Bom**
-	```c#
+	```csharp
 	public class Foo
 	{
 		public object SomeField { get; set; }
@@ -25,7 +25,7 @@
 - Sempre que criar propriedades reduza ao máximo o acesso de seu _setter_ caso ela seja vital para o funcionamento da classe
 
 	**Ruim**
-	```c#
+	```csharp
 	public class BankAccount
 	{
 		//setter da propriedade Balance público permite que outro trecho de código altere o saldo da conta livremente
@@ -34,10 +34,10 @@
 	```
 
 	**Bom**
-	```c#
+	```csharp
 	public class BankAccount
 	{
-		public decimal Balance {get;private set;}
+		public decimal Balance { get; private set; }
 
 		public void Deposit(decimal amount)
 		{

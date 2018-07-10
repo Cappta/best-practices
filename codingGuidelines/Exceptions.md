@@ -4,25 +4,25 @@
 Evitar ao máximo o uso de _rethrow_ de uma _Exception_, pois isto faz com que esta perca seu antigo _callstack_, ocultando o problema que originou a exceção.
 
 **Ruim:**
-```c#
+```csharp
 try 
 {
   // Do stuff that might throw an exception
 }
 catch (Exception e) {
-  throw e; // This destroys the strack trace information!
+  throw e; // This destroys the stack trace information!
 }
 ```
 
 **Bom:**
-```c#
+```csharp
 try 
 {
-  // code that may throw exceptions    
+  // Code that may throw exceptions    
 }
 catch (Exception ex) 
 {
-  // add error logging here
+  // Adds error logging here
   throw; // This preserves the stack trace
 }
 ```
@@ -31,7 +31,7 @@ catch (Exception ex)
 
 Sempre que possível realizar o tratamento de exceções especificas. Evitando algo como: 
 
-```c#
+```csharp
 try 
 {
   // Do stuff that might throw an exception

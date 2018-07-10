@@ -9,17 +9,18 @@
 
 - Prefira utilizar o construtor para realizar a inicialização de propriedades obrigatórias.
 
-- Utilize _object initializer_ para configurar propriedades opcionais ou de configuração.
+- Utilize _object initializer_ para configurar propriedades opcionais ou de configuração quando possível.
+    - Quando utilizamos o _object initializer_, se uma exceção é lançada em alguma linha de inicialização, esta exceção será indicada na primeira linha da declaração do _object initializer_, não na linha que realmente lançou a exceção. Portanto, para objetos complexos e que podem lançar exceções, é preferível que você não faça o uso deste recurso.
 
 **Ruim:**
-```c#
+```csharp
 var transaction = new Transaction();
 transaction.Amount = 1000;
 transaction.Type = "Credit";
 ```
 
 **Bom:**
-```c#
+```csharp
 var transaction = new Transaction
 {
     Amount = 1000,

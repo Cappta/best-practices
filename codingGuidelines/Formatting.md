@@ -5,7 +5,7 @@
 - Sempre formatar abertura de chaves na linha seguinte a menos que o trecho de código dentro das chaves seja relativamente simples, neste caso mantenha toda a sentença na mesma linha (incluindo as chaves)
 
 **Ruim:**
-```c#
+```csharp
 if (Condition){
 	// ...Stuff
    	// ...More than one stuff
@@ -13,7 +13,7 @@ if (Condition){
 ```
 
 **Bom:**
-```c#
+```csharp
 if (Condition)
 {
 	// ...Stuff
@@ -30,11 +30,11 @@ if (Condition){ // ...Stuff }
 - Sempre utilizar **{}** nos ifs mesmo que tenha somente uma linha, isso serve para evitar que por engano alguém inclua código sem reparar que as chaves não existam.
  
 **Ruim:**
-```c#
+```csharp
 if (word.IsNullOrEmpty() == true ) DoNothing();
 ```
 **Bom:**
-```c#
+```csharp
 if (word.IsNullOrEmpty() == true ) { DoNothing(); }
 ```
 
@@ -44,7 +44,7 @@ if (word.IsNullOrEmpty() == true ) { DoNothing(); }
   Sempre que possível tentar inverter a condição para reduzir ao máximo a quantidade de tabulações e facilitar a leitura.
 
 **Ruim:**
-```c#
+```csharp
 if (string.IsNullOrWhiteSpace(someTextInput) == false)
 {
   this.someService.Execute(someTextInput)
@@ -56,7 +56,7 @@ throw new ArgumentNullException("Input is empty");
 ```
 
 **Bom:**
-```c#
+```csharp
 if (string.IsNullOrWhiteSpace(someTextInput)) { throw new ArgumentNullException("Input is empty"); }
 
 this.someService.Execute(someTextInput)
@@ -68,16 +68,16 @@ this.fallbackSomeService.Execute(someTextInput);
 
 - Ordene suas classes da seguinte maneira:
 
-```c#
+```csharp
 class Example
 {
-	private const int CONST_VARIABLE_EXAMPLE = 0;   // 1° - Variáveis const
+	private const int CONST_VARIABLE_EXAMPLE = 0;   // 1° - Constantes
 
-	private static readonly string STATIC_READONLY_VARIABLE_EXAMPLE = "Example";	// 2° - Variaveis static readonly
+	private static readonly string STATIC_READONLY_VARIABLE_EXAMPLE = "Example";	// 2° - Atributos static readonly
 
-	private static int staticVariableExample = 0; // 3° - Variaveis static
+	private static int staticVariableExample = 0; // 3° - Atributos static
 
-	private string commomVariableExample = "Example";	// 4° Variaveis comuns
+	private string commomVariableExample = "Example";	// 4° Atributos comuns
 
 	public Example()	// 5° - Construtores
 	{
