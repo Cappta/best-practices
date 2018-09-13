@@ -65,7 +65,7 @@ var clientsList = clients.ToList();
 		this.Bar(someParameter.SomeField);
 	}
 	```
-- Para verificações de parâmetros em construtores, utilize o [operador _null coalescing_] (https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
+- Para verificações de parâmetros em construtores, utilize o [operador _null coalescing_](https://docs.microsoft.com/pt-br/dotnet/csharp/language-reference/operators/null-coalescing-operator)
 
 	```csharp
 	public class Foo
